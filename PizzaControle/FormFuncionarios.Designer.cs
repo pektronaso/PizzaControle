@@ -1,6 +1,6 @@
 ﻿namespace PizzaControle
 {
-    partial class Form1
+    partial class FormFuncionarios
     {
         /// <summary>
         /// Required designer variable.
@@ -29,17 +29,18 @@
         private void InitializeComponent()
         {
             this.listView1 = new System.Windows.Forms.ListView();
+            this.columnHeaderID = new System.Windows.Forms.ColumnHeader();
+            this.columnHeaderNome = new System.Windows.Forms.ColumnHeader();
+            this.columnHeaderType = new System.Windows.Forms.ColumnHeader();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.columnHeaderID = new System.Windows.Forms.ColumnHeader();
-            this.columnHeaderNome = new System.Windows.Forms.ColumnHeader();
-            this.columnHeaderType = new System.Windows.Forms.ColumnHeader();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -57,6 +58,20 @@
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeaderID
+            // 
+            this.columnHeaderID.Text = "id";
+            // 
+            // columnHeaderNome
+            // 
+            this.columnHeaderNome.Text = "Nome";
+            this.columnHeaderNome.Width = 360;
+            // 
+            // columnHeaderType
+            // 
+            this.columnHeaderType.Text = "Tipo de Conta";
+            this.columnHeaderType.Width = 255;
             // 
             // pictureBox1
             // 
@@ -118,20 +133,6 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Excluir";
             // 
-            // columnHeaderID
-            // 
-            this.columnHeaderID.Text = "id";
-            // 
-            // columnHeaderNome
-            // 
-            this.columnHeaderNome.Text = "Nome";
-            this.columnHeaderNome.Width = 255;
-            // 
-            // columnHeaderType
-            // 
-            this.columnHeaderType.Text = "Tipo de Conta";
-            this.columnHeaderType.Width = 650;
-            // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(12, 7);
@@ -146,11 +147,22 @@
             this.textBox2.Size = new System.Drawing.Size(620, 23);
             this.textBox2.TabIndex = 8;
             // 
-            // Form1
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label4.Location = new System.Drawing.Point(582, 494);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(115, 21);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Funcionários: 0";
+            // 
+            // FormFuncionarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(710, 594);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label3);
@@ -161,8 +173,10 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.listView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "Form1";
-            this.Text = "FormClientes";
+            this.Name = "FormFuncionarios";
+            this.Text = "Funcionários";
+            this.Load += new System.EventHandler(this.FormFuncionarios_Load);
+            this.Leave += new System.EventHandler(this.FormFuncionarios_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
@@ -185,5 +199,6 @@
         private ColumnHeader columnHeaderType;
         private TextBox textBox1;
         private TextBox textBox2;
+        private Label label4;
     }
 }

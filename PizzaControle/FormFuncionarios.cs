@@ -10,11 +10,26 @@ using System.Windows.Forms;
 
 namespace PizzaControle
 {
-    public partial class Form1 : Form
+    public partial class FormFuncionarios : Form
     {
-        public Form1()
+        public FormFuncionarios()
         {
             InitializeComponent();
+        }
+
+
+        public static int open = 0;
+
+
+        private void FormFuncionarios_Load(object sender, EventArgs e)
+        {
+
+        }
+
+
+        private void FormFuncionarios_Leave(object sender, EventArgs e)
+        {
+
         }
     }
 }
