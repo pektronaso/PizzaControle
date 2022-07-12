@@ -11,15 +11,15 @@ namespace PizzaControle
 
         public int id { get; set; }
 
-        public string? Name { get; set; }
+        public string? Nome { get; set; }
 
-        public string? Description { get; set; }
+        public string? Descrição  { get; set; }
 
         public DateTime? Created { get; set; }
 
-        public int? Amount { get; set; }
+        public int? quantidade { get; set; }
 
-        public decimal? Balance { get; set; }
+        public decimal? preço { get; set; }
 
         public bool? Blocked { get; set; }
 

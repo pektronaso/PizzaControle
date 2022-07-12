@@ -6,15 +6,12 @@ using System.Threading.Tasks;
 
 namespace PizzaControle
 {
-    internal class cliente
+    internal class funcionario
     {
         public int id { get; set; }
         public string? nome { get; set; }
-        public string? endereço { get; set; }
-        public int numero { get; set; }
-        public string? referencia { get; set; }
-        public string? telefone { get; set; }
-        
-        
+        public int nivel { get; set; }
+        public string? senha { get; set; }
+
     }
 }

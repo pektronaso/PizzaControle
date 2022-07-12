@@ -32,18 +32,28 @@
             this.columnHeaderID = new System.Windows.Forms.ColumnHeader();
             this.columnHeaderNome = new System.Windows.Forms.ColumnHeader();
             this.columnHeaderType = new System.Windows.Forms.ColumnHeader();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.btNovo = new System.Windows.Forms.PictureBox();
+            this.btExclui = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label_FuncionariosCount = new System.Windows.Forms.Label();
+            this.panelNewFuncionario = new System.Windows.Forms.Panel();
+            this.buttonFuncionarioCancelar = new System.Windows.Forms.Button();
+            this.buttonSalvar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            this.textBoxNome = new System.Windows.Forms.TextBox();
+            this.panelAlterar = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.buttonAlterar = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBoxNome_altera = new System.Windows.Forms.TextBox();
+            this.btAlterar = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.btNovo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btExclui)).BeginInit();
+            this.panelNewFuncionario.SuspendLayout();
+            this.panelAlterar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btAlterar)).BeginInit();
             this.SuspendLayout();
             // 
             // listView1
@@ -52,12 +62,15 @@
             this.columnHeaderID,
             this.columnHeaderNome,
             this.columnHeaderType});
-            this.listView1.Location = new System.Drawing.Point(12, 36);
+            this.listView1.FullRowSelect = true;
+            this.listView1.Location = new System.Drawing.Point(12, 12);
+            this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(685, 455);
+            this.listView1.Size = new System.Drawing.Size(685, 479);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.SelectedIndexChanged += new System.EventHandler(this.listView1_SelectedIndexChanged);
             // 
             // columnHeaderID
             // 
@@ -73,35 +86,27 @@
             this.columnHeaderType.Text = "Tipo de Conta";
             this.columnHeaderType.Width = 255;
             // 
-            // pictureBox1
+            // btNovo
             // 
-            this.pictureBox1.Image = global::PizzaControle.Properties.Resources.add_user_vector_icon;
-            this.pictureBox1.Location = new System.Drawing.Point(12, 508);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(79, 67);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.btNovo.Image = global::PizzaControle.Properties.Resources.add_user_vector_icon;
+            this.btNovo.Location = new System.Drawing.Point(12, 508);
+            this.btNovo.Name = "btNovo";
+            this.btNovo.Size = new System.Drawing.Size(79, 67);
+            this.btNovo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btNovo.TabIndex = 1;
+            this.btNovo.TabStop = false;
+            this.btNovo.Click += new System.EventHandler(this.btNovo_Click);
             // 
-            // pictureBox2
+            // btExclui
             // 
-            this.pictureBox2.Image = global::PizzaControle.Properties.Resources.remove_user;
-            this.pictureBox2.Location = new System.Drawing.Point(182, 508);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(79, 67);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::PizzaControle.Properties.Resources.edit_user;
-            this.pictureBox3.Location = new System.Drawing.Point(97, 508);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(79, 67);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 3;
-            this.pictureBox3.TabStop = false;
+            this.btExclui.Image = global::PizzaControle.Properties.Resources.remove_user;
+            this.btExclui.Location = new System.Drawing.Point(182, 508);
+            this.btExclui.Name = "btExclui";
+            this.btExclui.Size = new System.Drawing.Size(79, 67);
+            this.btExclui.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btExclui.TabIndex = 2;
+            this.btExclui.TabStop = false;
+            this.btExclui.Click += new System.EventHandler(this.btExclui_Click);
             // 
             // label1
             // 
@@ -133,53 +138,151 @@
             this.label3.TabIndex = 6;
             this.label3.Text = "Excluir";
             // 
-            // textBox1
+            // label_FuncionariosCount
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 7);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(59, 23);
-            this.textBox1.TabIndex = 7;
+            this.label_FuncionariosCount.AutoSize = true;
+            this.label_FuncionariosCount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label_FuncionariosCount.Location = new System.Drawing.Point(582, 494);
+            this.label_FuncionariosCount.Name = "label_FuncionariosCount";
+            this.label_FuncionariosCount.Size = new System.Drawing.Size(115, 21);
+            this.label_FuncionariosCount.TabIndex = 9;
+            this.label_FuncionariosCount.Text = "Funcionários: 0";
             // 
-            // textBox2
+            // panelNewFuncionario
             // 
-            this.textBox2.Location = new System.Drawing.Point(77, 7);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(620, 23);
-            this.textBox2.TabIndex = 8;
+            this.panelNewFuncionario.Controls.Add(this.buttonFuncionarioCancelar);
+            this.panelNewFuncionario.Controls.Add(this.buttonSalvar);
+            this.panelNewFuncionario.Controls.Add(this.label4);
+            this.panelNewFuncionario.Controls.Add(this.textBoxNome);
+            this.panelNewFuncionario.Location = new System.Drawing.Point(54, 178);
+            this.panelNewFuncionario.Name = "panelNewFuncionario";
+            this.panelNewFuncionario.Size = new System.Drawing.Size(580, 108);
+            this.panelNewFuncionario.TabIndex = 10;
+            this.panelNewFuncionario.Visible = false;
+            // 
+            // buttonFuncionarioCancelar
+            // 
+            this.buttonFuncionarioCancelar.Location = new System.Drawing.Point(402, 54);
+            this.buttonFuncionarioCancelar.Name = "buttonFuncionarioCancelar";
+            this.buttonFuncionarioCancelar.Size = new System.Drawing.Size(150, 30);
+            this.buttonFuncionarioCancelar.TabIndex = 3;
+            this.buttonFuncionarioCancelar.Text = "Cancelar";
+            this.buttonFuncionarioCancelar.UseVisualStyleBackColor = true;
+            this.buttonFuncionarioCancelar.Click += new System.EventHandler(this.buttonCancelar_Click);
+            // 
+            // buttonSalvar
+            // 
+            this.buttonSalvar.Location = new System.Drawing.Point(219, 54);
+            this.buttonSalvar.Name = "buttonSalvar";
+            this.buttonSalvar.Size = new System.Drawing.Size(177, 30);
+            this.buttonSalvar.TabIndex = 2;
+            this.buttonSalvar.Text = "Salvar";
+            this.buttonSalvar.UseVisualStyleBackColor = true;
+            this.buttonSalvar.Click += new System.EventHandler(this.buttonSalvar_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(582, 494);
+            this.label4.Location = new System.Drawing.Point(20, 28);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(115, 21);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Funcionários: 0";
+            this.label4.Size = new System.Drawing.Size(43, 15);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "Nome:";
+            // 
+            // textBoxNome
+            // 
+            this.textBoxNome.Location = new System.Drawing.Point(64, 25);
+            this.textBoxNome.Name = "textBoxNome";
+            this.textBoxNome.Size = new System.Drawing.Size(488, 23);
+            this.textBoxNome.TabIndex = 0;
+            // 
+            // panelAlterar
+            // 
+            this.panelAlterar.Controls.Add(this.button1);
+            this.panelAlterar.Controls.Add(this.buttonAlterar);
+            this.panelAlterar.Controls.Add(this.label5);
+            this.panelAlterar.Controls.Add(this.textBoxNome_altera);
+            this.panelAlterar.Location = new System.Drawing.Point(54, 177);
+            this.panelAlterar.Name = "panelAlterar";
+            this.panelAlterar.Size = new System.Drawing.Size(580, 108);
+            this.panelAlterar.TabIndex = 11;
+            this.panelAlterar.Visible = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(402, 54);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(150, 30);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Cancelar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // buttonAlterar
+            // 
+            this.buttonAlterar.Location = new System.Drawing.Point(219, 54);
+            this.buttonAlterar.Name = "buttonAlterar";
+            this.buttonAlterar.Size = new System.Drawing.Size(177, 30);
+            this.buttonAlterar.TabIndex = 2;
+            this.buttonAlterar.Text = "Salvar";
+            this.buttonAlterar.UseVisualStyleBackColor = true;
+            this.buttonAlterar.Click += new System.EventHandler(this.buttonAlterar_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(20, 28);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(43, 15);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Nome:";
+            // 
+            // textBoxNome_altera
+            // 
+            this.textBoxNome_altera.Location = new System.Drawing.Point(64, 25);
+            this.textBoxNome_altera.Name = "textBoxNome_altera";
+            this.textBoxNome_altera.Size = new System.Drawing.Size(488, 23);
+            this.textBoxNome_altera.TabIndex = 0;
+            // 
+            // btAlterar
+            // 
+            this.btAlterar.Image = global::PizzaControle.Properties.Resources.edit_user;
+            this.btAlterar.Location = new System.Drawing.Point(97, 508);
+            this.btAlterar.Name = "btAlterar";
+            this.btAlterar.Size = new System.Drawing.Size(79, 67);
+            this.btAlterar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btAlterar.TabIndex = 12;
+            this.btAlterar.TabStop = false;
+            this.btAlterar.Click += new System.EventHandler(this.btAlterar_Click);
             // 
             // FormFuncionarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(710, 594);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.panelAlterar);
+            this.Controls.Add(this.panelNewFuncionario);
+            this.Controls.Add(this.label_FuncionariosCount);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.btExclui);
+            this.Controls.Add(this.btNovo);
             this.Controls.Add(this.listView1);
+            this.Controls.Add(this.btAlterar);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FormFuncionarios";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Funcionários";
             this.Load += new System.EventHandler(this.FormFuncionarios_Load);
             this.Leave += new System.EventHandler(this.FormFuncionarios_Leave);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btNovo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btExclui)).EndInit();
+            this.panelNewFuncionario.ResumeLayout(false);
+            this.panelNewFuncionario.PerformLayout();
+            this.panelAlterar.ResumeLayout(false);
+            this.panelAlterar.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btAlterar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -188,17 +291,25 @@
         #endregion
 
         private ListView listView1;
-        private PictureBox pictureBox1;
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox3;
+        private PictureBox btNovo;
+        private PictureBox btExclui;
         private Label label1;
         private Label label2;
         private Label label3;
         private ColumnHeader columnHeaderID;
         private ColumnHeader columnHeaderNome;
         private ColumnHeader columnHeaderType;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private Label label_FuncionariosCount;
+        private Panel panelNewFuncionario;
+        private Button buttonSalvar;
         private Label label4;
+        private TextBox textBoxNome;
+        private Button buttonFuncionarioCancelar;
+        private Panel panelAlterar;
+        private Button button1;
+        private Button buttonAlterar;
+        private Label label5;
+        private TextBox textBoxNome_altera;
+        private PictureBox btAlterar;
     }
 }
