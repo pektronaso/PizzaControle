@@ -264,6 +264,50 @@ namespace PizzaControle
 
         }
 
+
+        public static void excluir_Cliente(string id)
+        {
+
+            MySqlConnection conn = new MySqlConnection(connStr);
+            try
+            {
+                conn.Open();
+
+                string sql = "DELETE FROM `clientes` WHERE (`id`='" + id + "') LIMIT 1";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+
+            }
+            conn.Close();
+
+
+        }
+
+        public static string add_Cliente(cliente client)
+        {
+
+            MySqlConnection conn = new MySqlConnection(connStr);
+            try
+            {
+                conn.Open();
+
+                string sql = "INSERT INTO clientes (nome, endereco, numero, referencia, telefone) VALUES ('" + client.nome + "','"+client.endereço+"', '"+client.numero+"', '"+client.referencia+"' , '"+client.telefone+"')";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                return ex.ToString();
+            }
+
+            conn.Close();
+            return "Cliente Cadastrado com Sucesso";
+
+        }
+
         public static string add_Funcionario (string nome) {
         
             MySqlConnection conn = new MySqlConnection(connStr);
