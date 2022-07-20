@@ -44,12 +44,11 @@
             this.tb_search_id = new System.Windows.Forms.TextBox();
             this.tb_search_nome = new System.Windows.Forms.TextBox();
             this.tb_search_endereco = new System.Windows.Forms.TextBox();
-            this.tb_search_numero = new System.Windows.Forms.TextBox();
             this.tb_search_telefone = new System.Windows.Forms.TextBox();
             this.tb_search_referencia = new System.Windows.Forms.TextBox();
             this.panelNovo = new System.Windows.Forms.Panel();
             this.button_novo_cancela = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lbPanelNewSalvar = new System.Windows.Forms.Label();
             this.bt_novoSalvar = new System.Windows.Forms.PictureBox();
             this.label8 = new System.Windows.Forms.Label();
             this.tb_novo_telefone = new System.Windows.Forms.TextBox();
@@ -61,11 +60,14 @@
             this.tb_novo_endereco = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tb_novo_nome = new System.Windows.Forms.TextBox();
+            this.btPanelNew_Altera = new System.Windows.Forms.PictureBox();
+            this.lbPanelNewAltera = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.btExclui)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btNovo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btAlterar)).BeginInit();
             this.panelNovo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bt_novoSalvar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btPanelNew_Altera)).BeginInit();
             this.SuspendLayout();
             // 
             // listView1
@@ -179,6 +181,7 @@
             this.btAlterar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btAlterar.TabIndex = 28;
             this.btAlterar.TabStop = false;
+            this.btAlterar.Click += new System.EventHandler(this.btAlterar_Click);
             // 
             // tb_search_id
             // 
@@ -186,6 +189,7 @@
             this.tb_search_id.Name = "tb_search_id";
             this.tb_search_id.Size = new System.Drawing.Size(57, 23);
             this.tb_search_id.TabIndex = 29;
+            this.tb_search_id.TextChanged += new System.EventHandler(this.tb_search_id_TextChanged);
             // 
             // tb_search_nome
             // 
@@ -193,20 +197,15 @@
             this.tb_search_nome.Name = "tb_search_nome";
             this.tb_search_nome.Size = new System.Drawing.Size(250, 23);
             this.tb_search_nome.TabIndex = 30;
+            this.tb_search_nome.TextChanged += new System.EventHandler(this.tb_search_nome_TextChanged);
             // 
             // tb_search_endereco
             // 
             this.tb_search_endereco.Location = new System.Drawing.Point(331, 9);
             this.tb_search_endereco.Name = "tb_search_endereco";
-            this.tb_search_endereco.Size = new System.Drawing.Size(277, 23);
+            this.tb_search_endereco.Size = new System.Drawing.Size(340, 23);
             this.tb_search_endereco.TabIndex = 31;
-            // 
-            // tb_search_numero
-            // 
-            this.tb_search_numero.Location = new System.Drawing.Point(614, 9);
-            this.tb_search_numero.Name = "tb_search_numero";
-            this.tb_search_numero.Size = new System.Drawing.Size(57, 23);
-            this.tb_search_numero.TabIndex = 32;
+            this.tb_search_endereco.TextChanged += new System.EventHandler(this.tb_search_endereco_TextChanged);
             // 
             // tb_search_telefone
             // 
@@ -214,6 +213,7 @@
             this.tb_search_telefone.Name = "tb_search_telefone";
             this.tb_search_telefone.Size = new System.Drawing.Size(116, 23);
             this.tb_search_telefone.TabIndex = 33;
+            this.tb_search_telefone.TextChanged += new System.EventHandler(this.tb_search_telefone_TextChanged);
             // 
             // tb_search_referencia
             // 
@@ -221,11 +221,12 @@
             this.tb_search_referencia.Name = "tb_search_referencia";
             this.tb_search_referencia.Size = new System.Drawing.Size(214, 23);
             this.tb_search_referencia.TabIndex = 34;
+            this.tb_search_referencia.TextChanged += new System.EventHandler(this.tb_search_referencia_TextChanged);
             // 
             // panelNovo
             // 
             this.panelNovo.Controls.Add(this.button_novo_cancela);
-            this.panelNovo.Controls.Add(this.label9);
+            this.panelNovo.Controls.Add(this.lbPanelNewSalvar);
             this.panelNovo.Controls.Add(this.bt_novoSalvar);
             this.panelNovo.Controls.Add(this.label8);
             this.panelNovo.Controls.Add(this.tb_novo_telefone);
@@ -237,6 +238,8 @@
             this.panelNovo.Controls.Add(this.tb_novo_endereco);
             this.panelNovo.Controls.Add(this.label4);
             this.panelNovo.Controls.Add(this.tb_novo_nome);
+            this.panelNovo.Controls.Add(this.btPanelNew_Altera);
+            this.panelNovo.Controls.Add(this.lbPanelNewAltera);
             this.panelNovo.Location = new System.Drawing.Point(117, 164);
             this.panelNovo.Name = "panelNovo";
             this.panelNovo.Size = new System.Drawing.Size(700, 215);
@@ -253,15 +256,15 @@
             this.button_novo_cancela.UseVisualStyleBackColor = true;
             this.button_novo_cancela.Click += new System.EventHandler(this.button_novo_cancela_Click);
             // 
-            // label9
+            // lbPanelNewSalvar
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(614, 195);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(43, 15);
-            this.label9.TabIndex = 27;
-            this.label9.Text = "Salvar";
+            this.lbPanelNewSalvar.AutoSize = true;
+            this.lbPanelNewSalvar.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbPanelNewSalvar.Location = new System.Drawing.Point(614, 195);
+            this.lbPanelNewSalvar.Name = "lbPanelNewSalvar";
+            this.lbPanelNewSalvar.Size = new System.Drawing.Size(43, 15);
+            this.lbPanelNewSalvar.TabIndex = 27;
+            this.lbPanelNewSalvar.Text = "Salvar";
             // 
             // bt_novoSalvar
             // 
@@ -360,6 +363,27 @@
             this.tb_novo_nome.Size = new System.Drawing.Size(532, 23);
             this.tb_novo_nome.TabIndex = 0;
             // 
+            // btPanelNew_Altera
+            // 
+            this.btPanelNew_Altera.Image = global::PizzaControle.Properties.Resources.edit_user;
+            this.btPanelNew_Altera.Location = new System.Drawing.Point(614, 143);
+            this.btPanelNew_Altera.Name = "btPanelNew_Altera";
+            this.btPanelNew_Altera.Size = new System.Drawing.Size(79, 67);
+            this.btPanelNew_Altera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btPanelNew_Altera.TabIndex = 29;
+            this.btPanelNew_Altera.TabStop = false;
+            this.btPanelNew_Altera.Click += new System.EventHandler(this.btPanelNew_Altera_Click);
+            // 
+            // lbPanelNewAltera
+            // 
+            this.lbPanelNewAltera.AutoSize = true;
+            this.lbPanelNewAltera.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbPanelNewAltera.Location = new System.Drawing.Point(614, 195);
+            this.lbPanelNewAltera.Name = "lbPanelNewAltera";
+            this.lbPanelNewAltera.Size = new System.Drawing.Size(46, 15);
+            this.lbPanelNewAltera.TabIndex = 30;
+            this.lbPanelNewAltera.Text = "Alterar";
+            // 
             // FormClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -368,7 +392,6 @@
             this.Controls.Add(this.panelNovo);
             this.Controls.Add(this.tb_search_referencia);
             this.Controls.Add(this.tb_search_telefone);
-            this.Controls.Add(this.tb_search_numero);
             this.Controls.Add(this.tb_search_endereco);
             this.Controls.Add(this.tb_search_nome);
             this.Controls.Add(this.tb_search_id);
@@ -390,6 +413,7 @@
             this.panelNovo.ResumeLayout(false);
             this.panelNovo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bt_novoSalvar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btPanelNew_Altera)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -413,7 +437,6 @@
         private TextBox tb_search_id;
         private TextBox tb_search_nome;
         private TextBox tb_search_endereco;
-        private TextBox tb_search_numero;
         private TextBox tb_search_telefone;
         private TextBox tb_search_referencia;
         private Panel panelNovo;
@@ -427,8 +450,10 @@
         private TextBox tb_novo_telefone;
         private Label label7;
         private TextBox tb_novo_referencia;
-        private Label label9;
+        private Label lbPanelNewSalvar;
         private PictureBox bt_novoSalvar;
         private Button button_novo_cancela;
+        private Label lbPanelNewAltera;
+        private PictureBox btPanelNew_Altera;
     }
 }
