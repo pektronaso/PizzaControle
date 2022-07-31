@@ -489,6 +489,40 @@ namespace PizzaControle
 
         }
 
+        public static string edit_Produto(produto product)
+        {
+
+            MySqlConnection conn = new MySqlConnection(connStr);
+            try
+            {
+                conn.Open();
+
+                string sql_pizzas = "UPDATE `produtos` SET `nome`='"+product.Nome+"', `descricao`='"+product.Descrição+"', `preco1`='"+product.preço1+"', `preco2`='"+product.preço2+"', `preco3`='"+product.preço3+"' WHERE (`id`='"+product.id+"') LIMIT 1";
+                
+                string sql_bebidas = "UPDATE `produtos` SET `nome`='" + product.Nome + "', `descricao`='" + product.Descrição + "', `preco1`='" + product.preço1 + "' WHERE (`id`='" + product.id + "') LIMIT 1";
+
+                string sql = "";
+
+                if(product.tipo == "pizzas")
+                {
+                    sql = sql_pizzas;
+                } else if (product.tipo == "bebidas"){
+                    sql = sql_bebidas;
+                }
+
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                return ex.ToString();
+            }
+
+            conn.Close();
+            return "Produto Alterado com Sucesso";
+
+        }
+
         public static string add_Cliente(cliente client)
         {
 

@@ -45,14 +45,12 @@
             this.btNovo = new System.Windows.Forms.PictureBox();
             this.btAlterar = new System.Windows.Forms.PictureBox();
             this.panel_Pizzas = new System.Windows.Forms.Panel();
+            this.numeric_pizzas_preco3 = new System.Windows.Forms.NumericUpDown();
+            this.numeric_pizzas_preco2 = new System.Windows.Forms.NumericUpDown();
+            this.numeric_pizzas_preco1 = new System.Windows.Forms.NumericUpDown();
             this.label15 = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.tb_pizzas_preco3 = new System.Windows.Forms.MaskedTextBox();
-            this.tb_pizzas_preco2 = new System.Windows.Forms.MaskedTextBox();
-            this.tb_pizzas_preco1 = new System.Windows.Forms.MaskedTextBox();
             this.button_panelNew_Pizzas_Close = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.tb_pizzas_Salvar = new System.Windows.Forms.PictureBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -63,13 +61,15 @@
             this.tb_pizzas_nome = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tb_pizzas_id = new System.Windows.Forms.TextBox();
+            this.lb_pizza_Salvar = new System.Windows.Forms.Label();
+            this.bt_pizzas_altera = new System.Windows.Forms.PictureBox();
+            this.bt_pizzas_Salvar = new System.Windows.Forms.PictureBox();
             this.panel_Bebidas = new System.Windows.Forms.Panel();
+            this.numeric_bebidas_preco = new System.Windows.Forms.NumericUpDown();
             this.label14 = new System.Windows.Forms.Label();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.tb_bebidas_preco = new System.Windows.Forms.MaskedTextBox();
             this.bt_panelNew_bebidas_Close = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.tb_bebidas_Salvar = new System.Windows.Forms.PictureBox();
+            this.lb_bebidas_Salvar = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -78,6 +78,8 @@
             this.tb_bebidas_nome = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.tb_bebidas_id = new System.Windows.Forms.TextBox();
+            this.bt_bebidas_Salvar = new System.Windows.Forms.PictureBox();
+            this.bt_bebidas_altera = new System.Windows.Forms.PictureBox();
             this.panel_select_tipo = new System.Windows.Forms.Panel();
             this.bt_panelSelectTipo_close = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
@@ -101,11 +103,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.btNovo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btAlterar)).BeginInit();
             this.panel_Pizzas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numeric_pizzas_preco3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numeric_pizzas_preco2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numeric_pizzas_preco1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tb_pizzas_Salvar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bt_pizzas_altera)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bt_pizzas_Salvar)).BeginInit();
             this.panel_Bebidas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numeric_bebidas_preco)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tb_bebidas_Salvar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bt_bebidas_Salvar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bt_bebidas_altera)).BeginInit();
             this.panel_select_tipo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bt_panelSelectTipo_choiceBebida)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bt_panelSelectTipo_choicePizza)).BeginInit();
@@ -242,17 +250,16 @@
             this.btAlterar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.btAlterar.TabIndex = 34;
             this.btAlterar.TabStop = false;
+            this.btAlterar.Click += new System.EventHandler(this.btAlterar_Click);
             // 
             // panel_Pizzas
             // 
+            this.panel_Pizzas.Controls.Add(this.numeric_pizzas_preco3);
+            this.panel_Pizzas.Controls.Add(this.numeric_pizzas_preco2);
+            this.panel_Pizzas.Controls.Add(this.numeric_pizzas_preco1);
             this.panel_Pizzas.Controls.Add(this.label15);
             this.panel_Pizzas.Controls.Add(this.pictureBox3);
-            this.panel_Pizzas.Controls.Add(this.tb_pizzas_preco3);
-            this.panel_Pizzas.Controls.Add(this.tb_pizzas_preco2);
-            this.panel_Pizzas.Controls.Add(this.tb_pizzas_preco1);
             this.panel_Pizzas.Controls.Add(this.button_panelNew_Pizzas_Close);
-            this.panel_Pizzas.Controls.Add(this.label11);
-            this.panel_Pizzas.Controls.Add(this.tb_pizzas_Salvar);
             this.panel_Pizzas.Controls.Add(this.label10);
             this.panel_Pizzas.Controls.Add(this.label9);
             this.panel_Pizzas.Controls.Add(this.label8);
@@ -263,11 +270,38 @@
             this.panel_Pizzas.Controls.Add(this.tb_pizzas_nome);
             this.panel_Pizzas.Controls.Add(this.label4);
             this.panel_Pizzas.Controls.Add(this.tb_pizzas_id);
+            this.panel_Pizzas.Controls.Add(this.lb_pizza_Salvar);
+            this.panel_Pizzas.Controls.Add(this.bt_pizzas_altera);
+            this.panel_Pizzas.Controls.Add(this.bt_pizzas_Salvar);
             this.panel_Pizzas.Location = new System.Drawing.Point(153, 196);
             this.panel_Pizzas.Name = "panel_Pizzas";
             this.panel_Pizzas.Size = new System.Drawing.Size(834, 281);
             this.panel_Pizzas.TabIndex = 35;
             this.panel_Pizzas.Visible = false;
+            // 
+            // numeric_pizzas_preco3
+            // 
+            this.numeric_pizzas_preco3.DecimalPlaces = 2;
+            this.numeric_pizzas_preco3.Location = new System.Drawing.Point(592, 207);
+            this.numeric_pizzas_preco3.Name = "numeric_pizzas_preco3";
+            this.numeric_pizzas_preco3.Size = new System.Drawing.Size(100, 23);
+            this.numeric_pizzas_preco3.TabIndex = 44;
+            // 
+            // numeric_pizzas_preco2
+            // 
+            this.numeric_pizzas_preco2.DecimalPlaces = 2;
+            this.numeric_pizzas_preco2.Location = new System.Drawing.Point(369, 207);
+            this.numeric_pizzas_preco2.Name = "numeric_pizzas_preco2";
+            this.numeric_pizzas_preco2.Size = new System.Drawing.Size(100, 23);
+            this.numeric_pizzas_preco2.TabIndex = 43;
+            // 
+            // numeric_pizzas_preco1
+            // 
+            this.numeric_pizzas_preco1.DecimalPlaces = 2;
+            this.numeric_pizzas_preco1.Location = new System.Drawing.Point(147, 207);
+            this.numeric_pizzas_preco1.Name = "numeric_pizzas_preco1";
+            this.numeric_pizzas_preco1.Size = new System.Drawing.Size(100, 23);
+            this.numeric_pizzas_preco1.TabIndex = 42;
             // 
             // label15
             // 
@@ -289,39 +323,6 @@
             this.pictureBox3.TabIndex = 38;
             this.pictureBox3.TabStop = false;
             // 
-            // tb_pizzas_preco3
-            // 
-            this.tb_pizzas_preco3.Location = new System.Drawing.Point(594, 205);
-            this.tb_pizzas_preco3.Mask = "00.00";
-            this.tb_pizzas_preco3.Name = "tb_pizzas_preco3";
-            this.tb_pizzas_preco3.Size = new System.Drawing.Size(100, 23);
-            this.tb_pizzas_preco3.TabIndex = 37;
-            this.tb_pizzas_preco3.Text = "0000";
-            this.tb_pizzas_preco3.ValidatingType = typeof(System.DateTime);
-            this.tb_pizzas_preco3.Click += new System.EventHandler(this.tb_pizzas_preco3_Click);
-            // 
-            // tb_pizzas_preco2
-            // 
-            this.tb_pizzas_preco2.Location = new System.Drawing.Point(368, 205);
-            this.tb_pizzas_preco2.Mask = "00.00";
-            this.tb_pizzas_preco2.Name = "tb_pizzas_preco2";
-            this.tb_pizzas_preco2.Size = new System.Drawing.Size(100, 23);
-            this.tb_pizzas_preco2.TabIndex = 36;
-            this.tb_pizzas_preco2.Text = "0000";
-            this.tb_pizzas_preco2.ValidatingType = typeof(System.DateTime);
-            this.tb_pizzas_preco2.Click += new System.EventHandler(this.tb_pizzas_preco2_Click);
-            // 
-            // tb_pizzas_preco1
-            // 
-            this.tb_pizzas_preco1.Location = new System.Drawing.Point(147, 205);
-            this.tb_pizzas_preco1.Mask = "00.00";
-            this.tb_pizzas_preco1.Name = "tb_pizzas_preco1";
-            this.tb_pizzas_preco1.Size = new System.Drawing.Size(100, 23);
-            this.tb_pizzas_preco1.TabIndex = 35;
-            this.tb_pizzas_preco1.Text = "0000";
-            this.tb_pizzas_preco1.ValidatingType = typeof(System.DateTime);
-            this.tb_pizzas_preco1.Click += new System.EventHandler(this.tb_pizzas_preco1_Click);
-            // 
             // button_panelNew_Pizzas_Close
             // 
             this.button_panelNew_Pizzas_Close.Location = new System.Drawing.Point(803, 7);
@@ -331,27 +332,6 @@
             this.button_panelNew_Pizzas_Close.Text = "X";
             this.button_panelNew_Pizzas_Close.UseVisualStyleBackColor = true;
             this.button_panelNew_Pizzas_Close.Click += new System.EventHandler(this.button_panelNew_Pizzas_Close_Click);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(743, 261);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(43, 15);
-            this.label11.TabIndex = 33;
-            this.label11.Text = "Salvar";
-            // 
-            // tb_pizzas_Salvar
-            // 
-            this.tb_pizzas_Salvar.Image = global::PizzaControle.Properties.Resources.add_user_vector_icon;
-            this.tb_pizzas_Salvar.Location = new System.Drawing.Point(743, 209);
-            this.tb_pizzas_Salvar.Name = "tb_pizzas_Salvar";
-            this.tb_pizzas_Salvar.Size = new System.Drawing.Size(79, 67);
-            this.tb_pizzas_Salvar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.tb_pizzas_Salvar.TabIndex = 32;
-            this.tb_pizzas_Salvar.TabStop = false;
-            this.tb_pizzas_Salvar.Click += new System.EventHandler(this.tb_pizzas_Salvar_Click);
             // 
             // label10
             // 
@@ -445,14 +425,45 @@
             this.tb_pizzas_id.Size = new System.Drawing.Size(53, 23);
             this.tb_pizzas_id.TabIndex = 0;
             // 
+            // lb_pizza_Salvar
+            // 
+            this.lb_pizza_Salvar.AutoSize = true;
+            this.lb_pizza_Salvar.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lb_pizza_Salvar.Location = new System.Drawing.Point(743, 261);
+            this.lb_pizza_Salvar.Name = "lb_pizza_Salvar";
+            this.lb_pizza_Salvar.Size = new System.Drawing.Size(43, 15);
+            this.lb_pizza_Salvar.TabIndex = 46;
+            this.lb_pizza_Salvar.Text = "Salvar";
+            // 
+            // bt_pizzas_altera
+            // 
+            this.bt_pizzas_altera.Image = global::PizzaControle.Properties.Resources.edit_user;
+            this.bt_pizzas_altera.Location = new System.Drawing.Point(743, 209);
+            this.bt_pizzas_altera.Name = "bt_pizzas_altera";
+            this.bt_pizzas_altera.Size = new System.Drawing.Size(79, 67);
+            this.bt_pizzas_altera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bt_pizzas_altera.TabIndex = 45;
+            this.bt_pizzas_altera.TabStop = false;
+            this.bt_pizzas_altera.Click += new System.EventHandler(this.bt_pizzas_altera_Click);
+            // 
+            // bt_pizzas_Salvar
+            // 
+            this.bt_pizzas_Salvar.Image = global::PizzaControle.Properties.Resources.add_user_vector_icon;
+            this.bt_pizzas_Salvar.Location = new System.Drawing.Point(743, 209);
+            this.bt_pizzas_Salvar.Name = "bt_pizzas_Salvar";
+            this.bt_pizzas_Salvar.Size = new System.Drawing.Size(79, 67);
+            this.bt_pizzas_Salvar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bt_pizzas_Salvar.TabIndex = 32;
+            this.bt_pizzas_Salvar.TabStop = false;
+            this.bt_pizzas_Salvar.Click += new System.EventHandler(this.bt_pizzas_Salvar_Click);
+            // 
             // panel_Bebidas
             // 
+            this.panel_Bebidas.Controls.Add(this.numeric_bebidas_preco);
             this.panel_Bebidas.Controls.Add(this.label14);
             this.panel_Bebidas.Controls.Add(this.pictureBox4);
-            this.panel_Bebidas.Controls.Add(this.tb_bebidas_preco);
             this.panel_Bebidas.Controls.Add(this.bt_panelNew_bebidas_Close);
-            this.panel_Bebidas.Controls.Add(this.label12);
-            this.panel_Bebidas.Controls.Add(this.tb_bebidas_Salvar);
+            this.panel_Bebidas.Controls.Add(this.lb_bebidas_Salvar);
             this.panel_Bebidas.Controls.Add(this.label13);
             this.panel_Bebidas.Controls.Add(this.label16);
             this.panel_Bebidas.Controls.Add(this.label17);
@@ -461,11 +472,21 @@
             this.panel_Bebidas.Controls.Add(this.tb_bebidas_nome);
             this.panel_Bebidas.Controls.Add(this.label19);
             this.panel_Bebidas.Controls.Add(this.tb_bebidas_id);
+            this.panel_Bebidas.Controls.Add(this.bt_bebidas_altera);
+            this.panel_Bebidas.Controls.Add(this.bt_bebidas_Salvar);
             this.panel_Bebidas.Location = new System.Drawing.Point(154, 198);
             this.panel_Bebidas.Name = "panel_Bebidas";
             this.panel_Bebidas.Size = new System.Drawing.Size(834, 280);
             this.panel_Bebidas.TabIndex = 39;
             this.panel_Bebidas.Visible = false;
+            // 
+            // numeric_bebidas_preco
+            // 
+            this.numeric_bebidas_preco.DecimalPlaces = 2;
+            this.numeric_bebidas_preco.Location = new System.Drawing.Point(146, 204);
+            this.numeric_bebidas_preco.Name = "numeric_bebidas_preco";
+            this.numeric_bebidas_preco.Size = new System.Drawing.Size(100, 23);
+            this.numeric_bebidas_preco.TabIndex = 41;
             // 
             // label14
             // 
@@ -487,17 +508,6 @@
             this.pictureBox4.TabIndex = 39;
             this.pictureBox4.TabStop = false;
             // 
-            // tb_bebidas_preco
-            // 
-            this.tb_bebidas_preco.Location = new System.Drawing.Point(147, 202);
-            this.tb_bebidas_preco.Mask = "00.00";
-            this.tb_bebidas_preco.Name = "tb_bebidas_preco";
-            this.tb_bebidas_preco.Size = new System.Drawing.Size(100, 23);
-            this.tb_bebidas_preco.TabIndex = 35;
-            this.tb_bebidas_preco.Text = "0000";
-            this.tb_bebidas_preco.ValidatingType = typeof(System.DateTime);
-            this.tb_bebidas_preco.Click += new System.EventHandler(this.tb_bebidas_preco_Click);
-            // 
             // bt_panelNew_bebidas_Close
             // 
             this.bt_panelNew_bebidas_Close.Location = new System.Drawing.Point(803, 4);
@@ -508,26 +518,15 @@
             this.bt_panelNew_bebidas_Close.UseVisualStyleBackColor = true;
             this.bt_panelNew_bebidas_Close.Click += new System.EventHandler(this.bt_panelNew_bebidas_Close_Click);
             // 
-            // label12
+            // lb_bebidas_Salvar
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label12.Location = new System.Drawing.Point(743, 258);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(43, 15);
-            this.label12.TabIndex = 33;
-            this.label12.Text = "Salvar";
-            // 
-            // tb_bebidas_Salvar
-            // 
-            this.tb_bebidas_Salvar.Image = global::PizzaControle.Properties.Resources.add_user_vector_icon;
-            this.tb_bebidas_Salvar.Location = new System.Drawing.Point(743, 206);
-            this.tb_bebidas_Salvar.Name = "tb_bebidas_Salvar";
-            this.tb_bebidas_Salvar.Size = new System.Drawing.Size(79, 67);
-            this.tb_bebidas_Salvar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.tb_bebidas_Salvar.TabIndex = 32;
-            this.tb_bebidas_Salvar.TabStop = false;
-            this.tb_bebidas_Salvar.Click += new System.EventHandler(this.tb_bebidas_Salvar_Click);
+            this.lb_bebidas_Salvar.AutoSize = true;
+            this.lb_bebidas_Salvar.Font = new System.Drawing.Font("Arial", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lb_bebidas_Salvar.Location = new System.Drawing.Point(743, 258);
+            this.lb_bebidas_Salvar.Name = "lb_bebidas_Salvar";
+            this.lb_bebidas_Salvar.Size = new System.Drawing.Size(43, 15);
+            this.lb_bebidas_Salvar.TabIndex = 33;
+            this.lb_bebidas_Salvar.Text = "Salvar";
             // 
             // label13
             // 
@@ -601,6 +600,28 @@
             this.tb_bebidas_id.Size = new System.Drawing.Size(53, 23);
             this.tb_bebidas_id.TabIndex = 0;
             // 
+            // bt_bebidas_Salvar
+            // 
+            this.bt_bebidas_Salvar.Image = global::PizzaControle.Properties.Resources.add_user_vector_icon;
+            this.bt_bebidas_Salvar.Location = new System.Drawing.Point(743, 206);
+            this.bt_bebidas_Salvar.Name = "bt_bebidas_Salvar";
+            this.bt_bebidas_Salvar.Size = new System.Drawing.Size(79, 67);
+            this.bt_bebidas_Salvar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bt_bebidas_Salvar.TabIndex = 32;
+            this.bt_bebidas_Salvar.TabStop = false;
+            this.bt_bebidas_Salvar.Click += new System.EventHandler(this.tb_bebidas_Salvar_Click);
+            // 
+            // bt_bebidas_altera
+            // 
+            this.bt_bebidas_altera.Image = global::PizzaControle.Properties.Resources.edit_user;
+            this.bt_bebidas_altera.Location = new System.Drawing.Point(743, 206);
+            this.bt_bebidas_altera.Name = "bt_bebidas_altera";
+            this.bt_bebidas_altera.Size = new System.Drawing.Size(79, 67);
+            this.bt_bebidas_altera.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.bt_bebidas_altera.TabIndex = 46;
+            this.bt_bebidas_altera.TabStop = false;
+            this.bt_bebidas_altera.Click += new System.EventHandler(this.bt_bebidas_altera_Click);
+            // 
             // panel_select_tipo
             // 
             this.panel_select_tipo.Controls.Add(this.bt_panelSelectTipo_close);
@@ -610,7 +631,7 @@
             this.panel_select_tipo.Controls.Add(this.bt_panelSelectTipo_choiceBebida);
             this.panel_select_tipo.Controls.Add(this.bt_panelSelectTipo_choicePizza);
             this.panel_select_tipo.Controls.Add(this.label20);
-            this.panel_select_tipo.Location = new System.Drawing.Point(306, 252);
+            this.panel_select_tipo.Location = new System.Drawing.Point(318, 223);
             this.panel_select_tipo.Name = "panel_select_tipo";
             this.panel_select_tipo.Size = new System.Drawing.Size(506, 168);
             this.panel_select_tipo.TabIndex = 41;
@@ -824,12 +845,18 @@
             ((System.ComponentModel.ISupportInitialize)(this.btAlterar)).EndInit();
             this.panel_Pizzas.ResumeLayout(false);
             this.panel_Pizzas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numeric_pizzas_preco3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numeric_pizzas_preco2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numeric_pizzas_preco1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tb_pizzas_Salvar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bt_pizzas_altera)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bt_pizzas_Salvar)).EndInit();
             this.panel_Bebidas.ResumeLayout(false);
             this.panel_Bebidas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numeric_bebidas_preco)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tb_bebidas_Salvar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bt_bebidas_Salvar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bt_bebidas_altera)).EndInit();
             this.panel_select_tipo.ResumeLayout(false);
             this.panel_select_tipo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bt_panelSelectTipo_choiceBebida)).EndInit();
@@ -870,21 +897,16 @@
         private Label label8;
         private Label label7;
         private Label label10;
-        private Label label11;
-        private PictureBox tb_pizzas_Salvar;
+        private PictureBox bt_pizzas_Salvar;
         private Button button_panelNew_Pizzas_Close;
-        private MaskedTextBox tb_pizzas_preco1;
-        private MaskedTextBox tb_pizzas_preco2;
-        private MaskedTextBox tb_pizzas_preco3;
         private PictureBox pictureBox3;
         private Label label15;
         private Panel panel_Bebidas;
         private Label label14;
         private PictureBox pictureBox4;
-        private MaskedTextBox tb_bebidas_preco;
         private Button bt_panelNew_bebidas_Close;
-        private Label label12;
-        private PictureBox tb_bebidas_Salvar;
+        private Label lb_bebidas_Salvar;
+        private PictureBox bt_bebidas_Salvar;
         private Label label13;
         private Label label16;
         private Label label17;
@@ -912,5 +934,12 @@
         private ColumnHeader columnHeader8;
         private ColumnHeader columnHeader6;
         private ColumnHeader columnHeader7;
+        private NumericUpDown numeric_bebidas_preco;
+        private NumericUpDown numeric_pizzas_preco1;
+        private NumericUpDown numeric_pizzas_preco3;
+        private NumericUpDown numeric_pizzas_preco2;
+        private Label lb_pizza_Salvar;
+        private PictureBox bt_pizzas_altera;
+        private PictureBox bt_bebidas_altera;
     }
 }
