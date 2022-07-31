@@ -12,14 +12,66 @@ namespace PizzaControle
 {
     public partial class FormProdutos : Form
     {
+
         public FormProdutos()
         {
             InitializeComponent();
         }
 
 
-        
 
+        private void refreshDateWithSearch(string key, string value)
+        {
+            listView1.Items.Clear();
+            listView2.Items.Clear();
+            
+
+            foreach (var produto in database.GetProductsWithSearch(key, value))
+            {
+                ListViewItem listItem = new ListViewItem();
+
+                if (produto.tipo == "pizzas")
+                {
+                    listItem.Text = produto.id.ToString();
+
+                    listItem.SubItems.Add(produto.Nome);
+
+                    listItem.SubItems.Add(produto.preço1.ToString());
+
+                    listItem.SubItems.Add(produto.preço2.ToString());
+
+                    listItem.SubItems.Add(produto.preço3.ToString());
+
+                    listItem.SubItems.Add(produto.tipo);
+
+                    listItem.SubItems.Add(produto.Descrição);
+
+                } else if (produto.tipo == "bebidas")
+                {
+                    listItem.Text = produto.id.ToString();
+
+                    listItem.SubItems.Add(produto.Nome);
+
+                    
+                    listItem.SubItems.Add(produto.preço1.ToString());
+                    
+                    listItem.SubItems.Add(produto.tipo);
+
+                    listItem.SubItems.Add(produto.Descrição);
+
+
+                }
+
+
+
+                if (produto.tipo == "pizzas") {
+                    listView1.Items.Add(listItem);
+                } else if (produto.tipo == "bebidas") {
+                    listView2.Items.Add(listItem); }
+
+
+            }
+        }
 
 
         private void refreshDate(string tipo)
@@ -486,10 +538,12 @@ namespace PizzaControle
 
             if (listView1.SelectedItems.Count > 0)
             {
-                listView2.SelectedItems.Clear();
+                listView2.SelectedItems.Clear();                
 
                 panel_Pizzas.Visible = true;
                 panel_Pizzas.BringToFront();
+
+                tb_pizzas_id.Enabled = false;
 
                 tb_pizzas_id.Text = listView1.SelectedItems[0].Text;
                 tb_pizzas_nome.Text = listView1.SelectedItems[0].SubItems[1].Text;
@@ -516,6 +570,8 @@ namespace PizzaControle
 
                 tb_bebidas_id.Text = listView2.SelectedItems[0].Text;
 
+                tb_bebidas_id.Enabled = false;
+
                 tb_bebidas_nome.Text = listView2.SelectedItems[0].SubItems[1].Text;
 
                 tb_bebidas_descricao.Text = listView2.SelectedItems[0].SubItems[4].Text;
@@ -528,6 +584,41 @@ namespace PizzaControle
 
         }
 
-      
+        private void tb_search_id_TextChanged(object sender, EventArgs e)
+        {
+            if (tb_search_id.Text.Length > 0)
+            {
+                refreshDateWithSearch("id", tb_search_id.Text);
+
+            }
+            else
+            {
+                if (radioButton_Pizzas.Checked){
+                    refreshDate("pizzas");
+                } else {
+                    refreshDate("bebidas");
+                }
+            }
+        }
+
+        private void tb_Search_Name_TextChanged(object sender, EventArgs e)
+        {
+            if (tb_Search_Name.Text.Length > 0)
+            {
+                refreshDateWithSearch("nome", tb_Search_Name.Text);
+
+            }
+            else
+            {
+                if (radioButton_Pizzas.Checked)
+                {
+                    refreshDate("pizzas");
+                }
+                else
+                {
+                    refreshDate("bebidas");
+                }
+            }
+        }
     }
 }

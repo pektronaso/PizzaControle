@@ -217,6 +217,64 @@ namespace PizzaControle
         }
 
 
+        public static List<produto> GetProductsWithSearch(String key, String value)
+        {
+
+            MySqlConnection conn = new MySqlConnection(connStr);
+            try
+            {
+
+                conn.Open();
+
+                string sql = "";
+
+                if (key == "id")
+                {
+                  sql = "SELECT * FROM produtos WHERE(`id` ='" + value + "')";
+                } else { 
+                 sql = "SELECT * FROM produtos WHERE(`" + key + "` LIKE'%" + value + "%')";                    
+                }
+
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+                List<produto> produtos = new List<produto>();
+
+                while (rdr.Read())
+                {
+                    produto p = new produto();
+
+                    p.id = (int)rdr["id"];
+                    p.Nome = rdr["nome"].ToString();                    
+                    p.Descrição = rdr["descricao"].ToString();
+                    
+                    p.preço1 = (decimal)rdr["preco1"];
+                    p.preço2 = (decimal)rdr["preco2"];
+                    p.preço3 = (decimal)rdr["preco3"];
+                    
+                    p.tipo = rdr["tipo"].ToString();
+
+
+                    produtos.Add(p);
+
+                }
+
+
+
+                return produtos;
+
+            }
+            catch (Exception)
+            {
+                return new List<produto>();
+            }
+
+
+
+
+
+        }
+
         public static List<cliente> GetClientesWithSearch(String key, String value)
         {
 

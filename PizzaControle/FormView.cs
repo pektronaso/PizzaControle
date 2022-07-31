@@ -70,6 +70,10 @@ namespace PizzaControle
             }
         }
 
+        private void aberturaDeCaixaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     
 }

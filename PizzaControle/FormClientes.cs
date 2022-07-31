@@ -12,6 +12,8 @@ namespace PizzaControle
 {
     public partial class FormClientes : Form
     {
+        private string? edit_id;
+
         public FormClientes()
         {
             InitializeComponent();
@@ -93,7 +95,7 @@ namespace PizzaControle
             refreshDate();
         }
 
-        private string edit_id;
+        
         private void btAlterar_Click(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count > 0)
