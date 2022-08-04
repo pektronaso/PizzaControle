@@ -32,6 +32,13 @@ namespace PizzaControle
             OpenSingleton("Produtos");
         }
 
+        private void aberturaDeCaixaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenSingleton("Caixa");
+        }
+
+
+
         private void OpenSingleton(string form) {
             
             int totalForms = Application.OpenForms.Count;
@@ -65,15 +72,18 @@ namespace PizzaControle
                         FormFuncionarios formFuncionarios = new FormFuncionarios();
                         formFuncionarios.Show();
                         break;
+                    case "Caixa":
+                        FormCaixa formCaixa = new FormCaixa();
+                        formCaixa.Show();
+                        break;
+
+
+
                 }
 
             }
         }
 
-        private void aberturaDeCaixaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
     }
     
 }

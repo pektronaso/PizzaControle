@@ -78,6 +78,156 @@ namespace PizzaControle
 
         }
 
+        public static caixa GetLastCaixa() {
+
+            MySqlConnection conn = new MySqlConnection(connStr);
+            try
+            {
+
+                conn.Open();
+
+                string sql = "SELECT * FROM caixas WHERE closed_at IS NULL";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+                
+                caixa cx = new caixa();
+                
+                while (rdr.Read())
+                {
+                     cx.id = Convert.ToInt32(rdr["id"].ToString());
+                     cx.code = rdr["code"].ToString();
+                     cx.created_At = (DateTime) rdr["created_at"];
+                }
+
+                if (rdr.HasRows)                {
+                    return cx;
+                } else
+                {
+                    return new caixa();
+                }
+
+
+
+
+            }
+            catch (Exception)
+            {
+                return new caixa();
+            }
+
+        }
+
+        public static void CloseCaixa(caixa cx)
+        {
+            MySqlConnection conn = new MySqlConnection(connStr);
+            try
+            {
+                conn.Open();
+                
+                string sql = "UPDATE `caixas` SET `closed_at`='"+ DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', `closed_ammount`='"+cx.closed_ammount+"' WHERE (`id`='"+cx.id+"') LIMIT 1";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+
+            }
+            conn.Close();
+
+
+        }
+
+        public static void CloseDupeCaixa()
+        {
+
+            MySqlConnection conn = new MySqlConnection(connStr);
+            try
+            {
+
+                conn.Open();
+
+                string sql = "SELECT * FROM caixas WHERE closed_at IS NULL";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+
+                List<caixa> cxs = new List<caixa>();
+
+                while (rdr.Read())
+                {
+                    caixa cx = new caixa();
+                    cx.id = Convert.ToInt32(rdr["id"].ToString());
+                    cx.code = rdr["code"].ToString();
+                    cx.created_At = (DateTime)rdr["created_at"];
+                    cxs.Add(cx);
+                }
+
+
+                for (int i = 0; i < cxs.Count; i++)
+                {
+                    if (GetLastCaixa().id != cxs[i].id)
+                    {
+                        
+                        cxs[i].closed_ammount = 0;
+
+                        CloseCaixa(cxs[i]);
+                    }
+                }
+
+
+
+            }
+            catch (Exception)
+            {
+                
+            }
+
+        }
+
+        public static bool ExistsOpenCaixa()
+        {
+
+            MySqlConnection conn = new MySqlConnection(connStr);
+            try
+            {
+
+                conn.Open();
+                
+                string sql = "SELECT COUNT(*) FROM caixas WHERE closed_at IS NULL";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                
+                int count = Convert.ToInt32(cmd.ExecuteScalar());
+
+                if (count > 0)
+                {
+                    if(count > 1) {
+                        MessageBox.Show("múltiplos caixas aberto Fechando caixas anteriores.");
+                        CloseDupeCaixa();
+                        
+                    }
+
+                    return true;
+
+                } else {
+                    return false;
+                }
+
+
+
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+
+
+
+
+
+        }
 
         public static List<funcionario> GetFuncionarios()
         {
