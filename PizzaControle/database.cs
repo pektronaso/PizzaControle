@@ -7,7 +7,7 @@ using MySql.Data.MySqlClient;
 
 namespace PizzaControle
 {
-    internal static class database
+    internal  static class database
     {
         
         // MYSQL PARAMETERS CONFIG
@@ -96,9 +96,9 @@ namespace PizzaControle
                 
                 while (rdr.Read())
                 {
-                     cx.id = Convert.ToInt32(rdr["id"].ToString());
-                     cx.code = rdr["code"].ToString();
-                     cx.created_At = (DateTime) rdr["created_at"];
+                     cx.id = Convert.ToInt32(rdr["id"].ToString());                     
+                     cx.created_At =     (DateTime) rdr["created_at"];
+                    cx.initial_ammount = (decimal)rdr["initial_ammount"];
                 }
 
                 if (rdr.HasRows)                {
@@ -119,6 +119,26 @@ namespace PizzaControle
 
         }
 
+        public static void OpenCaixa(decimal openValue) 
+        {
+            MySqlConnection conn = new MySqlConnection(connStr);
+            try
+            {
+                conn.Open();
+
+                string sql = "INSERT INTO `caixas` (`initial_ammount`) VALUES ('"+openValue.ToString().Replace(',','.')+"')";
+                
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception)
+            {
+
+            }
+            conn.Close();
+
+        }
+
         public static void CloseCaixa(caixa cx)
         {
             MySqlConnection conn = new MySqlConnection(connStr);
@@ -126,7 +146,7 @@ namespace PizzaControle
             {
                 conn.Open();
                 
-                string sql = "UPDATE `caixas` SET `closed_at`='"+ DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', `closed_ammount`='"+cx.closed_ammount+"' WHERE (`id`='"+cx.id+"') LIMIT 1";
+                string sql = "UPDATE `caixas` SET `closed_at`='"+ DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "', `closed_ammount`='"+cx.closed_ammount.ToString().Replace(',','.')+"' WHERE (`id`='"+cx.id+"') LIMIT 1";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.ExecuteNonQuery();
             }
@@ -159,8 +179,7 @@ namespace PizzaControle
                 while (rdr.Read())
                 {
                     caixa cx = new caixa();
-                    cx.id = Convert.ToInt32(rdr["id"].ToString());
-                    cx.code = rdr["code"].ToString();
+                    cx.id = Convert.ToInt32(rdr["id"].ToString());                    
                     cx.created_At = (DateTime)rdr["created_at"];
                     cxs.Add(cx);
                 }

@@ -17,31 +17,102 @@ namespace PizzaControle
             InitializeComponent();
         }
 
-
-
-        private void FormCaixa_Load(object sender, EventArgs e)
+        private void RefreshCaixa()
         {
-
-
             if (database.ExistsOpenCaixa())
             {
-                
-                caixa cx = database.GetLastCaixa();
 
-                if(cx.id > 0)
-                {
-                    lb_code.Text = cx.code;
-                    
-                }
+                caixa cx = caixa.getLastCaixa();
+
+
+                lb_code.Text = cx.id.ToString();
+                lb_status.Text = "ABERTO";
+                lb_status.ForeColor = Color.LimeGreen;
+                lb_initialAmmount.Text = "R$:" + cx.initial_ammount;
+
 
                 bt_AbrirCaixa.Enabled = false;
                 bt_FecharCaixa.Enabled = true;
-            } else
+
+            }
+            else
             {
+
                 bt_AbrirCaixa.Enabled = true;
                 bt_FecharCaixa.Enabled = false;
+                lb_status.Text = "FECHADO";
+                lb_status.ForeColor = Color.Red;
+            }
+        }
+
+        private void Disable_Panels() {
+
+            pn_AbrirCaixa.Visible = false;
+            pn_FecharCaixa.Visible = false;            
+            
+        }
+
+        private void Enable_pnAbrirCaixa() {
+
+            Disable_Panels();
+            
+            pn_AbrirCaixa.Visible = true;
+            pn_AbrirCaixa.BringToFront();
+
+        }
+
+        private void Enable_pnFecharCaixa() {
+
+            Disable_Panels();
+            
+            pn_FecharCaixa.Visible = true;
+            pn_FecharCaixa.BringToFront();
+        }
+
+        private void FormCaixa_Load(object sender, EventArgs e)
+        {
+            RefreshCaixa();
+        }
+
+        private void bt_AbrirCaixa_Click(object sender, EventArgs e)
+        {
+            Enable_pnAbrirCaixa();
+        }
+
+        private void bt_FecharCaixa_Click(object sender, EventArgs e)
+        {
+            Enable_pnFecharCaixa();
+        }
+
+
+
+
+
+        private void bt_pnAbrirCaixa_Click(object sender, EventArgs e)
+        {
+            if (!database.ExistsOpenCaixa())
+            {
+                caixa.OpenCaixa(numericUpDown_AmmountInCaixa.Value);
             }
 
+            Disable_Panels();
+            RefreshCaixa();
+        }
+
+        private void bt_pnFecharCaixa_Click(object sender, EventArgs e)
+        {
+            caixa cx = caixa.getLastCaixa();
+            cx.closed_ammount = numericUpDown_FecharAmmount.Value;
+            caixa.CloseCaixa(cx);
+
+            lb_code.Text = "000";
+            lb_movimentacao.Text = "R$0,00";
+            lb_initialAmmount.Text = "R0,00";
+            lb_despesas.Text = "R$0,00";
+            lb_entradas.Text = "R$0,00";
+
+            Disable_Panels();
+            RefreshCaixa();
         }
     }
 }

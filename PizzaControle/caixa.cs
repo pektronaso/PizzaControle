@@ -13,7 +13,27 @@ namespace PizzaControle
         public string? code { get; set; }
         public DateTime created_At { get; set; }
         public DateTime closed_At { get; set; }
-        public decimal closed_ammount { get; set; }
+        public decimal closed_ammount { get; set; }        
+        public decimal initial_ammount { get; set; }
+
+
+        public static caixa getLastCaixa() {
+
+            return database.GetLastCaixa();
+        }
+
+        public static void CloseCaixa(caixa cx) {
+
+            database.CloseCaixa(cx);
+
+        }
+
+        public static void OpenCaixa(decimal initialAmmount) { 
+            
+            database.OpenCaixa(initialAmmount);
+        }
+
+
 
 
     }
