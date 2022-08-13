@@ -27,13 +27,14 @@ namespace PizzaControle
             
             try {
                 
-                conn.Open();              
-                
+                conn.Open();
+                conn.Close();
                 return true;
             
             }
             catch (Exception)
             {
+                conn.Close();
                 return false;
             }
 
@@ -58,9 +59,11 @@ namespace PizzaControle
                 
                 if(rdr.HasRows)
                 {
+                    conn.Close();
                     return true;
                 } else
                 {
+                    conn.Close();
                     return false;
                 }
 
@@ -69,6 +72,7 @@ namespace PizzaControle
             }
             catch (Exception)
             {
+                conn.Close();
                 return false;
             }
 
@@ -102,9 +106,11 @@ namespace PizzaControle
                 }
 
                 if (rdr.HasRows)                {
+                    conn.Close();
                     return cx;
                 } else
                 {
+                    conn.Close();
                     return new caixa();
                 }
 
@@ -114,6 +120,7 @@ namespace PizzaControle
             }
             catch (Exception)
             {
+                conn.Close();
                 return new caixa();
             }
 
@@ -133,7 +140,7 @@ namespace PizzaControle
             }
             catch (Exception)
             {
-
+                conn.Close();
             }
             conn.Close();
 
@@ -152,7 +159,7 @@ namespace PizzaControle
             }
             catch (Exception)
             {
-
+                conn.Close();
             }
             conn.Close();
 
@@ -201,9 +208,10 @@ namespace PizzaControle
             }
             catch (Exception)
             {
-                
+                conn.Close();
             }
-
+            
+            conn.Close();
         }
 
         public static bool ExistsOpenCaixa()
@@ -228,9 +236,11 @@ namespace PizzaControle
                         
                     }
 
+                    conn.Close();
                     return true;
 
                 } else {
+                    conn.Close();
                     return false;
                 }
 
@@ -239,11 +249,9 @@ namespace PizzaControle
             }
             catch (Exception)
             {
+                conn.Close();
                 return false;
             }
-
-
-
 
 
         }
@@ -278,12 +286,13 @@ namespace PizzaControle
                 }
 
 
-
+                conn.Close();
                 return funcionarios;
                 
             }
             catch (Exception)
             {
+                conn.Close();
                 return new List<funcionario>();
             }
 
@@ -321,12 +330,14 @@ namespace PizzaControle
                 }
 
 
+                conn.Close();
 
                 return entregadores;
 
             }
             catch (Exception)
             {
+                conn.Close();
                 return new List<entregador>();
             }
 
@@ -370,12 +381,13 @@ namespace PizzaControle
                 }
 
 
-
+                conn.Close();
                 return protudos;
 
             }
             catch (Exception)
             {
+                conn.Close();
                 return new List<produto>();
             }
 
@@ -429,12 +441,13 @@ namespace PizzaControle
                 }
 
 
-
+                conn.Close();
                 return produtos;
 
             }
             catch (Exception)
             {
+                conn.Close();
                 return new List<produto>();
             }
 
@@ -477,12 +490,13 @@ namespace PizzaControle
                 }
 
 
-
+                conn.Close();
                 return clientes;
 
             }
             catch (Exception)
             {
+                conn.Close();
                 return new List<cliente>();
             }
 
@@ -528,12 +542,13 @@ namespace PizzaControle
                 }
 
 
-
+                conn.Close();
                 return clientes;
 
             }
             catch (Exception)
             {
+                conn.Close();
                 return new List<cliente>();
             }
 
@@ -558,7 +573,7 @@ namespace PizzaControle
             }
             catch (Exception)
             {
-
+                conn.Close();
             }
             conn.Close();
 
@@ -579,7 +594,7 @@ namespace PizzaControle
             }
             catch (Exception)
             {
-
+                conn.Close();
             }
             conn.Close();
 
@@ -600,7 +615,7 @@ namespace PizzaControle
             }
             catch (Exception)
             {
-
+                conn.Close();
             }
             conn.Close();
 
@@ -620,7 +635,7 @@ namespace PizzaControle
                 cmd.ExecuteNonQuery();
             }
             catch (Exception) {
-                
+                conn.Close();
             }
             conn.Close();
             
@@ -643,7 +658,7 @@ namespace PizzaControle
             }
             catch (Exception)
             {
-
+                conn.Close();
             }
             conn.Close();
 
@@ -665,7 +680,7 @@ namespace PizzaControle
             }
             catch (Exception)
             {
-
+                conn.Close();
             }
             conn.Close();
 
@@ -687,7 +702,7 @@ namespace PizzaControle
             }
             catch (Exception)
             {
-
+                conn.Close();
             }
             conn.Close();
 
@@ -708,6 +723,7 @@ namespace PizzaControle
             }
             catch (Exception ex)
             {
+                conn.Close();
                 return ex.ToString();
             }
 
@@ -742,6 +758,7 @@ namespace PizzaControle
             }
             catch (Exception ex)
             {
+                conn.Close();
                 return ex.ToString();
             }
 
@@ -764,6 +781,7 @@ namespace PizzaControle
             }
             catch (Exception ex)
             {
+                conn.Close();
                 return ex.ToString();
             }
 
@@ -785,6 +803,7 @@ namespace PizzaControle
             }
             catch (Exception ex)
             {
+                conn.Close();
                 return ex.ToString();
             }
 

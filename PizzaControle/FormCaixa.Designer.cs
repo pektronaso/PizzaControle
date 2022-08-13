@@ -50,6 +50,8 @@
             this.bt_pnFecharCaixa = new System.Windows.Forms.Button();
             this.numericUpDown_FecharAmmount = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
+            this.lb_OpenAt = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.pn_AbrirCaixa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_AmmountInCaixa)).BeginInit();
             this.pn_FecharCaixa.SuspendLayout();
@@ -273,11 +275,6 @@
             // 
             this.numericUpDown_FecharAmmount.DecimalPlaces = 2;
             this.numericUpDown_FecharAmmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.numericUpDown_FecharAmmount.Increment = new decimal(new int[] {
-            200,
-            0,
-            0,
-            0});
             this.numericUpDown_FecharAmmount.Location = new System.Drawing.Point(167, 34);
             this.numericUpDown_FecharAmmount.Maximum = new decimal(new int[] {
             999,
@@ -287,11 +284,6 @@
             this.numericUpDown_FecharAmmount.Name = "numericUpDown_FecharAmmount";
             this.numericUpDown_FecharAmmount.Size = new System.Drawing.Size(120, 29);
             this.numericUpDown_FecharAmmount.TabIndex = 15;
-            this.numericUpDown_FecharAmmount.Value = new decimal(new int[] {
-            230,
-            0,
-            0,
-            0});
             // 
             // label6
             // 
@@ -303,11 +295,33 @@
             this.label6.TabIndex = 14;
             this.label6.Text = "Valor em Caixa:";
             // 
+            // lb_OpenAt
+            // 
+            this.lb_OpenAt.AutoSize = true;
+            this.lb_OpenAt.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lb_OpenAt.Location = new System.Drawing.Point(421, 98);
+            this.lb_OpenAt.Name = "lb_OpenAt";
+            this.lb_OpenAt.Size = new System.Drawing.Size(96, 21);
+            this.lb_OpenAt.TabIndex = 18;
+            this.lb_OpenAt.Text = "00/00/0000";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label9.Location = new System.Drawing.Point(328, 98);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(94, 21);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "Aberto em:";
+            // 
             // FormCaixa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 405);
+            this.Controls.Add(this.lb_OpenAt);
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.pn_FecharCaixa);
             this.Controls.Add(this.lb_initialAmmount);
             this.Controls.Add(this.label5);
@@ -364,5 +378,7 @@
         private Button bt_pnFecharCaixa;
         private NumericUpDown numericUpDown_FecharAmmount;
         private Label label6;
+        private Label lb_OpenAt;
+        private Label label9;
     }
 }

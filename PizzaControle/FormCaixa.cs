@@ -29,7 +29,7 @@ namespace PizzaControle
                 lb_status.Text = "ABERTO";
                 lb_status.ForeColor = Color.LimeGreen;
                 lb_initialAmmount.Text = "R$:" + cx.initial_ammount;
-
+                lb_OpenAt.Text = cx.created_At.ToString();
 
                 bt_AbrirCaixa.Enabled = false;
                 bt_FecharCaixa.Enabled = true;
@@ -110,7 +110,7 @@ namespace PizzaControle
             lb_initialAmmount.Text = "R0,00";
             lb_despesas.Text = "R$0,00";
             lb_entradas.Text = "R$0,00";
-
+            lb_OpenAt.Text = "00/00/00";
             Disable_Panels();
             RefreshCaixa();
         }

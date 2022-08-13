@@ -478,8 +478,11 @@ namespace PizzaControle
             panel_Pizzas.Visible = false;
 
             panel_Bebidas.Visible = true;
+            tb_bebidas_id.Enabled = true;
             tb_bebidas_id.Focus();
             panel_Bebidas.BringToFront();
+
+            
 
             bt_bebidas_Salvar.BringToFront();
             lb_bebidas_Salvar.BringToFront();
