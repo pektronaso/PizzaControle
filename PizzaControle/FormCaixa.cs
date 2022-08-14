@@ -19,7 +19,7 @@ namespace PizzaControle
 
         private void RefreshCaixa()
         {
-            if (database.ExistsOpenCaixa())
+            if (Database.ExistsOpenCaixa())
             {
 
                 caixa cx = caixa.getLastCaixa();
@@ -90,7 +90,7 @@ namespace PizzaControle
 
         private void bt_pnAbrirCaixa_Click(object sender, EventArgs e)
         {
-            if (!database.ExistsOpenCaixa())
+            if (!Database.ExistsOpenCaixa())
             {
                 caixa.OpenCaixa(numericUpDown_AmmountInCaixa.Value);
             }

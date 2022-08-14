@@ -18,13 +18,13 @@ namespace PizzaControle
         }
 
         
-        private void refreshDate()
+        private void refreshData()
         {
             listView1.Items.Clear();
 
-            label_FuncionariosCount.Text = "Funcionários: " + database.GetFuncionarios().Count;
+            label_FuncionariosCount.Text = "Funcionários: " + Database.GetFuncionarios().Count;
 
-            foreach (var funcionario in database.GetFuncionarios())
+            foreach (var funcionario in Database.GetFuncionarios())
             {
 
                 ListViewItem listItem = new ListViewItem();
@@ -43,7 +43,7 @@ namespace PizzaControle
 
         private void FormFuncionarios_Load(object sender, EventArgs e)
         {
-            refreshDate();            
+            refreshData();            
         }
 
 
@@ -71,12 +71,12 @@ namespace PizzaControle
         {
             if (textBoxNome.Text.Length > 1)
             {
-                MessageBox.Show(database.add_Funcionario(textBoxNome.Text));
+                MessageBox.Show(Database.add_Funcionario(textBoxNome.Text));
 
                 textBoxNome.Clear();
                 panelNewFuncionario.Visible = false;
 
-                refreshDate();
+                refreshData();
                 
             }
         }
@@ -98,8 +98,8 @@ namespace PizzaControle
                     DialogResult result = MessageBox.Show("Deseja realmente excluir o funcionário " + listView1.SelectedItems[0].SubItems[1].Text + "?", "Confirmation", MessageBoxButtons.YesNoCancel);
                     if (result == DialogResult.Yes)
                     {
-                        database.excluir_Funcionario(listView1.SelectedItems[0].SubItems[0].Text);
-                        refreshDate();
+                        Database.excluir_Funcionario(listView1.SelectedItems[0].SubItems[0].Text);
+                        refreshData();
                     }
                     else if (result == DialogResult.No)
                     {
@@ -119,11 +119,11 @@ namespace PizzaControle
 
             if(textBoxNome_altera.Text.Length > 2)
             {
-                database.alterar_Funcionario(listView1.SelectedItems[0].SubItems[0].Text, textBoxNome_altera.Text);
+                Database.alterar_Funcionario(listView1.SelectedItems[0].SubItems[0].Text, textBoxNome_altera.Text);
 
                 textBoxNome_altera.Clear();
                 panelAlterar.Visible = false;
-                refreshDate();
+                refreshData();
             }
 
 

@@ -33,7 +33,7 @@ namespace PizzaControle
 
             //label_EntregadoresCount.Text = "Entregadores: " + database.GetEntregadores().Count;
 
-            foreach (var cliente in database.GetClientes())
+            foreach (var cliente in Database.GetClientes())
             {
 
                 ListViewItem listItem = new ListViewItem();
@@ -63,7 +63,7 @@ namespace PizzaControle
 
             //label_EntregadoresCount.Text = "Entregadores: " + database.GetEntregadores().Count;
 
-            foreach (var cliente in database.GetClientesWithSearch(key,value))
+            foreach (var cliente in Database.GetClientesWithSearch(key,value))
             {
 
                 ListViewItem listItem = new ListViewItem();
@@ -166,7 +166,7 @@ namespace PizzaControle
                 cliente.referencia = tb_novo_referencia.Text;
                 cliente.telefone = tb_novo_telefone.Text;
 
-                var result = database.add_Cliente(cliente);
+                var result = Database.add_Cliente(cliente);
 
                 MessageBox.Show(result);
 
@@ -200,7 +200,7 @@ namespace PizzaControle
                 DialogResult result = MessageBox.Show("Deseja realmente excluir o cliente " + listView1.SelectedItems[0].SubItems[1].Text + "?", "Confirmation", MessageBoxButtons.YesNoCancel);
                 if (result == DialogResult.Yes)
                 {
-                    database.excluir_Cliente(listView1.SelectedItems[0].SubItems[0].Text);
+                    Database.excluir_Cliente(listView1.SelectedItems[0].SubItems[0].Text);
                     refreshDate();
                 }
                 else if (result == DialogResult.No)
@@ -234,7 +234,7 @@ namespace PizzaControle
                 cliente.referencia = tb_novo_referencia.Text;
                 cliente.telefone = tb_novo_telefone.Text;
 
-                database.alterar_cliente(cliente);
+                Database.alterar_cliente(cliente);
 
                 MessageBox.Show("Cliente Alterado com sucesso!");
 

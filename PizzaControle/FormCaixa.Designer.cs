@@ -52,6 +52,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.lb_OpenAt = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.pn_AbrirCaixa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_AmmountInCaixa)).BeginInit();
             this.pn_FecharCaixa.SuspendLayout();
@@ -117,11 +123,11 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(321, 138);
+            this.label4.Location = new System.Drawing.Point(318, 143);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(174, 21);
+            this.label4.Size = new System.Drawing.Size(171, 21);
             this.label4.TabIndex = 6;
-            this.label4.Text = "Movimentação Atual:";
+            this.label4.Text = "Movimentação Total:";
             // 
             // lb_code
             // 
@@ -137,7 +143,7 @@
             // 
             this.lb_movimentacao.AutoSize = true;
             this.lb_movimentacao.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lb_movimentacao.Location = new System.Drawing.Point(501, 138);
+            this.lb_movimentacao.Location = new System.Drawing.Point(495, 143);
             this.lb_movimentacao.Name = "lb_movimentacao";
             this.lb_movimentacao.Size = new System.Drawing.Size(64, 21);
             this.lb_movimentacao.TabIndex = 8;
@@ -147,7 +153,7 @@
             // 
             this.lb_entradas.AutoSize = true;
             this.lb_entradas.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lb_entradas.Location = new System.Drawing.Point(206, 202);
+            this.lb_entradas.Location = new System.Drawing.Point(181, 202);
             this.lb_entradas.Name = "lb_entradas";
             this.lb_entradas.Size = new System.Drawing.Size(64, 21);
             this.lb_entradas.TabIndex = 10;
@@ -157,7 +163,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(120, 202);
+            this.label8.Location = new System.Drawing.Point(95, 202);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(80, 21);
             this.label8.TabIndex = 9;
@@ -167,7 +173,7 @@
             // 
             this.lb_despesas.AutoSize = true;
             this.lb_despesas.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lb_despesas.Location = new System.Drawing.Point(411, 202);
+            this.lb_despesas.Location = new System.Drawing.Point(181, 223);
             this.lb_despesas.Name = "lb_despesas";
             this.lb_despesas.Size = new System.Drawing.Size(64, 21);
             this.lb_despesas.TabIndex = 12;
@@ -177,7 +183,7 @@
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(321, 202);
+            this.label10.Location = new System.Drawing.Point(91, 223);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(84, 21);
             this.label10.TabIndex = 11;
@@ -208,7 +214,7 @@
             this.pn_AbrirCaixa.Controls.Add(this.bt_pnAbrirCaixa);
             this.pn_AbrirCaixa.Controls.Add(this.numericUpDown_AmmountInCaixa);
             this.pn_AbrirCaixa.Controls.Add(this.label2);
-            this.pn_AbrirCaixa.Location = new System.Drawing.Point(173, 123);
+            this.pn_AbrirCaixa.Location = new System.Drawing.Point(0, 0);
             this.pn_AbrirCaixa.Name = "pn_AbrirCaixa";
             this.pn_AbrirCaixa.Size = new System.Drawing.Size(380, 100);
             this.pn_AbrirCaixa.TabIndex = 15;
@@ -254,7 +260,8 @@
             this.pn_FecharCaixa.Controls.Add(this.bt_pnFecharCaixa);
             this.pn_FecharCaixa.Controls.Add(this.numericUpDown_FecharAmmount);
             this.pn_FecharCaixa.Controls.Add(this.label6);
-            this.pn_FecharCaixa.Location = new System.Drawing.Point(173, 123);
+            this.pn_FecharCaixa.Controls.Add(this.pn_AbrirCaixa);
+            this.pn_FecharCaixa.Location = new System.Drawing.Point(181, 138);
             this.pn_FecharCaixa.Name = "pn_FecharCaixa";
             this.pn_FecharCaixa.Size = new System.Drawing.Size(380, 100);
             this.pn_FecharCaixa.TabIndex = 16;
@@ -315,11 +322,83 @@
             this.label9.TabIndex = 17;
             this.label9.Text = "Aberto em:";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label7.ForeColor = System.Drawing.Color.Red;
+            this.label7.Location = new System.Drawing.Point(495, 171);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(64, 21);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "R$ 0,00";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label11.ForeColor = System.Drawing.Color.Red;
+            this.label11.Location = new System.Drawing.Point(315, 171);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(174, 21);
+            this.label11.TabIndex = 19;
+            this.label11.Text = "Movimentação Ifood:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label12.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label12.Location = new System.Drawing.Point(495, 199);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(64, 21);
+            this.label12.TabIndex = 22;
+            this.label12.Text = "R$ 0,00";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label13.ForeColor = System.Drawing.Color.RoyalBlue;
+            this.label13.Location = new System.Drawing.Point(334, 199);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(155, 21);
+            this.label13.TabIndex = 21;
+            this.label13.Text = "Movimentação Tel:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label14.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.label14.Location = new System.Drawing.Point(495, 227);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(64, 21);
+            this.label14.TabIndex = 24;
+            this.label14.Text = "R$ 0,00";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label15.ForeColor = System.Drawing.Color.DarkGoldenrod;
+            this.label15.Location = new System.Drawing.Point(305, 227);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(184, 21);
+            this.label15.TabIndex = 23;
+            this.label15.Text = "Movimentação Balcão:";
+            // 
             // FormCaixa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 405);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.lb_OpenAt);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.pn_FecharCaixa);
@@ -337,7 +416,6 @@
             this.Controls.Add(this.bt_AbrirCaixa);
             this.Controls.Add(this.lb_status);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.pn_AbrirCaixa);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FormCaixa";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -380,5 +458,11 @@
         private Label label6;
         private Label lb_OpenAt;
         private Label label9;
+        private Label label7;
+        private Label label11;
+        private Label label12;
+        private Label label13;
+        private Label label14;
+        private Label label15;
     }
 }

@@ -66,6 +66,7 @@
             this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
+            this.emServiçoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.panel_Action.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -199,7 +200,8 @@
             this.entregadoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.trabalhandoToolStripMenuItem,
             this.baterCartãoDeSaídaToolStripMenuItem,
-            this.toolStripMenuItem4});
+            this.toolStripMenuItem4,
+            this.emServiçoToolStripMenuItem});
             this.entregadoresToolStripMenuItem.Name = "entregadoresToolStripMenuItem";
             this.entregadoresToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
             this.entregadoresToolStripMenuItem.Text = "Entregadores";
@@ -219,7 +221,7 @@
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(195, 6);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(177, 6);
             // 
             // relatóriosToolStripMenuItem
             // 
@@ -361,6 +363,12 @@
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 0;
             // 
+            // emServiçoToolStripMenuItem
+            // 
+            this.emServiçoToolStripMenuItem.Name = "emServiçoToolStripMenuItem";
+            this.emServiçoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.emServiçoToolStripMenuItem.Text = "Em Serviço";
+            // 
             // FormView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -431,5 +439,6 @@
         private Button button2;
         private ToolStripStatusLabel toolStripStatusLabel2;
         private ToolStripStatusLabel statusLabel;
+        private ToolStripMenuItem emServiçoToolStripMenuItem;
     }
 }

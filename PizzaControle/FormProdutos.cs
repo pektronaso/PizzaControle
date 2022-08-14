@@ -26,7 +26,7 @@ namespace PizzaControle
             listView2.Items.Clear();
             
 
-            foreach (var produto in database.GetProductsWithSearch(key, value))
+            foreach (var produto in Database.GetProductsWithSearch(key, value))
             {
                 ListViewItem listItem = new ListViewItem();
 
@@ -81,7 +81,7 @@ namespace PizzaControle
 
             //label_EntregadoresCount.Text = "Entregadores: " + database.GetEntregadores().Count;
 
-            foreach (var produto in database.GetProdutos())
+            foreach (var produto in Database.GetProdutos())
             {
 
                 ListViewItem listItem = new ListViewItem();
@@ -182,7 +182,7 @@ namespace PizzaControle
                     } else
                     {
 
-                        if(database.Product_id_Exists(tb_pizzas_id.Text))
+                        if(Database.Product_id_Exists(tb_pizzas_id.Text))
                         {
                             MessageBox.Show("Já Existe um produto com esse Código.");
                         } else
@@ -199,7 +199,7 @@ namespace PizzaControle
                             new_prod.preço2 = preco2;
                             new_prod.preço3 = preco3;
 
-                            string result = database.add_Produto(new_prod);
+                            string result = Database.add_Produto(new_prod);
 
                             MessageBox.Show(result);
 
@@ -254,7 +254,7 @@ namespace PizzaControle
                     else
                     {
 
-                        if (database.Product_id_Exists(tb_pizzas_id.Text))
+                        if (Database.Product_id_Exists(tb_pizzas_id.Text))
                         {
                             produto _prod = new produto();
 
@@ -267,7 +267,7 @@ namespace PizzaControle
                             _prod.preço2 = preco2;
                             _prod.preço3 = preco3;
 
-                            string result = database.edit_Produto(_prod);
+                            string result = Database.edit_Produto(_prod);
 
                             MessageBox.Show(result);
 
@@ -319,7 +319,7 @@ namespace PizzaControle
                     else
                     {
 
-                        if (database.Product_id_Exists(tb_bebidas_id.Text))
+                        if (Database.Product_id_Exists(tb_bebidas_id.Text))
                         {
                             MessageBox.Show("Já Existe um produto com esse Código.");
                         }
@@ -336,7 +336,7 @@ namespace PizzaControle
                             new_prod.preço1 = preco;
                             
 
-                            string result = database.add_Produto(new_prod);
+                            string result = Database.add_Produto(new_prod);
 
                             MessageBox.Show(result);
 
@@ -388,7 +388,7 @@ namespace PizzaControle
                     else
                     {
 
-                        if (database.Product_id_Exists(tb_bebidas_id.Text))
+                        if (Database.Product_id_Exists(tb_bebidas_id.Text))
                         {
                             produto _prod = new produto();
 
@@ -401,7 +401,7 @@ namespace PizzaControle
                             _prod.preço2 = 0;
                             _prod.preço3 = 0;
 
-                            string result = database.edit_Produto(_prod);
+                            string result = Database.edit_Produto(_prod);
 
                             MessageBox.Show(result);
 
@@ -518,7 +518,7 @@ namespace PizzaControle
                 DialogResult result = MessageBox.Show("Deseja realmente excluir o Produto " + listView1.SelectedItems[0].SubItems[1].Text + "?", "Confirmation", MessageBoxButtons.YesNoCancel);
                 if (result == DialogResult.Yes)
                 {
-                    database.excluir_Produto(listView1.SelectedItems[0].SubItems[0].Text);
+                    Database.excluir_Produto(listView1.SelectedItems[0].SubItems[0].Text);
                     refreshDate("pizzas");
                 }
             } else if (listView2.SelectedItems.Count > 0)
@@ -527,7 +527,7 @@ namespace PizzaControle
                 DialogResult result = MessageBox.Show("Deseja realmente excluir o Produto " + listView2.SelectedItems[0].SubItems[1].Text + "?", "Confirmation", MessageBoxButtons.YesNoCancel);
                 if (result == DialogResult.Yes)
                 {
-                    database.excluir_Produto(listView2.SelectedItems[0].SubItems[0].Text);
+                    Database.excluir_Produto(listView2.SelectedItems[0].SubItems[0].Text);
                     refreshDate("bebidas");
                 }
             }

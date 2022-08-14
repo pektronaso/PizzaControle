@@ -7,7 +7,7 @@ using MySql.Data.MySqlClient;
 
 namespace PizzaControle
 {
-    internal  static class database
+    internal  static partial class Database
     {
         
         // MYSQL PARAMETERS CONFIG
@@ -43,44 +43,7 @@ namespace PizzaControle
         }
 
 
-        public static bool Product_id_Exists(string id)
-        {
-
-            MySqlConnection conn = new MySqlConnection(connStr);
-            try
-            {
-
-                conn.Open();
-
-                string sql = "SELECT * FROM produtos WHERE produtos.id =  '"+id+"'";
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                MySqlDataReader rdr = cmd.ExecuteReader();
-
-                
-                if(rdr.HasRows)
-                {
-                    conn.Close();
-                    return true;
-                } else
-                {
-                    conn.Close();
-                    return false;
-                }
-
-                
-
-            }
-            catch (Exception)
-            {
-                conn.Close();
-                return false;
-            }
-
-
-
-
-
-        }
+       
 
         public static caixa GetLastCaixa() {
 
@@ -231,7 +194,7 @@ namespace PizzaControle
                 if (count > 0)
                 {
                     if(count > 1) {
-                        MessageBox.Show("múltiplos caixas aberto Fechando caixas anteriores.");
+                        _ = MessageBox.Show("múltiplos caixas abertos, Fechando caixas anteriores.");
                         CloseDupeCaixa();
                         
                     }
@@ -256,51 +219,7 @@ namespace PizzaControle
 
         }
 
-        public static List<funcionario> GetFuncionarios()
-        {
-
-            MySqlConnection conn = new MySqlConnection(connStr);
-            try
-            {
-                
-                conn.Open();
-
-                string sql = "SELECT * FROM funcionarios";
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                MySqlDataReader rdr = cmd.ExecuteReader();
-
-                List<funcionario> funcionarios = new List<funcionario>();
-
-                while (rdr.Read())
-                {
-                    funcionario f = new funcionario();
-                    
-                    f.id    = (int)rdr[0];
-                    f.nome  = rdr[1].ToString();
-                    f.senha = rdr[2].ToString();
-                    f.nivel = (int)rdr[3];
-
-
-                    funcionarios.Add(f);                    
-                    
-                }
-
-
-                conn.Close();
-                return funcionarios;
-                
-            }
-            catch (Exception)
-            {
-                conn.Close();
-                return new List<funcionario>();
-            }
-
-
-            
-
-
-        }
+        
 
 
         public static List<entregador> GetEntregadores()
@@ -348,114 +267,7 @@ namespace PizzaControle
         }
 
 
-        public static List<produto> GetProdutos()
-        {
-
-            MySqlConnection conn = new MySqlConnection(connStr);
-            try
-            {
-
-                conn.Open();
-
-                string sql = "SELECT * FROM produtos";
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                MySqlDataReader rdr = cmd.ExecuteReader();
-
-                List<produto> protudos = new List<produto>();
-
-                while (rdr.Read())
-                {
-                    produto p = new produto();
-
-                    p.id        =              (int)rdr["id"];
-                    p.Nome      =                   rdr["Nome"].ToString();
-                    p.Descrição =                   rdr["descricao"].ToString();
-                    p.preço1    = Convert.ToDecimal(rdr["preco1"].ToString());
-                    p.preço2    = Convert.ToDecimal(rdr["preco2"].ToString());
-                    p.preço3    = Convert.ToDecimal(rdr["preco3"].ToString());
-                    p.tipo      =                   rdr["tipo"].ToString();
-                   
-
-                    protudos.Add(p);
-
-                }
-
-
-                conn.Close();
-                return protudos;
-
-            }
-            catch (Exception)
-            {
-                conn.Close();
-                return new List<produto>();
-            }
-
-
-
-
-
-        }
-
-
-        public static List<produto> GetProductsWithSearch(String key, String value)
-        {
-
-            MySqlConnection conn = new MySqlConnection(connStr);
-            try
-            {
-
-                conn.Open();
-
-                string sql = "";
-
-                if (key == "id")
-                {
-                  sql = "SELECT * FROM produtos WHERE(`id` ='" + value + "')";
-                } else { 
-                 sql = "SELECT * FROM produtos WHERE(`" + key + "` LIKE'%" + value + "%')";                    
-                }
-
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                MySqlDataReader rdr = cmd.ExecuteReader();
-
-                List<produto> produtos = new List<produto>();
-
-                while (rdr.Read())
-                {
-                    produto p = new produto();
-
-                    p.id = (int)rdr["id"];
-                    p.Nome = rdr["nome"].ToString();                    
-                    p.Descrição = rdr["descricao"].ToString();
-                    
-                    p.preço1 = (decimal)rdr["preco1"];
-                    p.preço2 = (decimal)rdr["preco2"];
-                    p.preço3 = (decimal)rdr["preco3"];
-                    
-                    p.tipo = rdr["tipo"].ToString();
-
-
-                    produtos.Add(p);
-
-                }
-
-
-                conn.Close();
-                return produtos;
-
-            }
-            catch (Exception)
-            {
-                conn.Close();
-                return new List<produto>();
-            }
-
-
-
-
-
-        }
+        
 
         public static List<cliente> GetClientesWithSearch(String key, String value)
         {
@@ -559,26 +371,7 @@ namespace PizzaControle
         }
 
 
-        public static void alterar_Funcionario(string id, string nome)
-        {
-
-            MySqlConnection conn = new MySqlConnection(connStr);
-            try
-            {
-                conn.Open();
-
-                string sql = "UPDATE `funcionarios` SET `nome`='"+nome+"' WHERE(`id`='"+id+"') LIMIT 1";
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception)
-            {
-                conn.Close();
-            }
-            conn.Close();
-
-
-        }
+        
 
         public static void alterar_Entregador(string id, string nome)
         {
@@ -622,27 +415,7 @@ namespace PizzaControle
 
         }
 
-        public static void excluir_Funcionario(string id)
-        {
-
-            MySqlConnection conn = new MySqlConnection(connStr);
-            try
-            {
-                conn.Open();
-
-                string sql = "DELETE FROM `funcionarios` WHERE (`id`='"+id+"') LIMIT 1";
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception) {
-                conn.Close();
-            }
-            conn.Close();
-            
-
-        }
-
-
+ 
 
         public static void excluir_Entregador(string id)
         {
@@ -666,26 +439,7 @@ namespace PizzaControle
         }
 
 
-        public static void excluir_Produto(string id)
-        {
-
-            MySqlConnection conn = new MySqlConnection(connStr);
-            try
-            {
-                conn.Open();
-
-                string sql = "DELETE FROM `produtos` WHERE (`id`='" + id + "') LIMIT 1";
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception)
-            {
-                conn.Close();
-            }
-            conn.Close();
-
-
-        }
+     
 
 
         public static void excluir_Cliente(string id)
@@ -709,7 +463,7 @@ namespace PizzaControle
 
         }
 
-        public static string add_Produto(produto product)
+        public static string add_entrada(int caixaId, decimal value, string comment)
         {
 
             MySqlConnection conn = new MySqlConnection(connStr);
@@ -717,7 +471,7 @@ namespace PizzaControle
             {
                 conn.Open();
 
-                string sql = "INSERT INTO `produtos` (`id`, `nome`, `descricao`, `preco1`, `preco2`, `preco3`, `tipo`) VALUES ('" + product.id + "', '" + product.Nome + "', '" + product.Descrição + "', '" + product.preço1.ToString().Replace(',','.') +"', '"+product.preço2.ToString().Replace(',', '.') + "', '"+product.preço3.ToString().Replace(',', '.') + "', '"+product.tipo+"')";
+                string sql = "INSERT INTO `entradas` (`caixaId`, `ammount`, `comment`) VALUES ('" + caixaId + "', '" + value + "', '" + comment + "')";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.ExecuteNonQuery();
             }
@@ -728,11 +482,11 @@ namespace PizzaControle
             }
 
             conn.Close();
-            return "Produto Cadastrado com Sucesso";
+            return "Despesa Registrada com Sucesso";
 
         }
 
-        public static string edit_Produto(produto product)
+        public static string add_despesa(int caixaId, decimal value, string comment)
         {
 
             MySqlConnection conn = new MySqlConnection(connStr);
@@ -740,19 +494,7 @@ namespace PizzaControle
             {
                 conn.Open();
 
-                string sql_pizzas = "UPDATE `produtos` SET `nome`='"+product.Nome+"', `descricao`='"+product.Descrição+"', `preco1`='"+product.preço1+"', `preco2`='"+product.preço2+"', `preco3`='"+product.preço3+"' WHERE (`id`='"+product.id+"') LIMIT 1";
-                
-                string sql_bebidas = "UPDATE `produtos` SET `nome`='" + product.Nome + "', `descricao`='" + product.Descrição + "', `preco1`='" + product.preço1 + "' WHERE (`id`='" + product.id + "') LIMIT 1";
-
-                string sql = "";
-
-                if(product.tipo == "pizzas")
-                {
-                    sql = sql_pizzas;
-                } else if (product.tipo == "bebidas"){
-                    sql = sql_bebidas;
-                }
-
+                string sql = "INSERT INTO `despesas` (`caixaId`, `ammount`, `comment`) VALUES ('"+caixaId+"', '"+value+"', '"+comment+"')";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.ExecuteNonQuery();
             }
@@ -763,9 +505,11 @@ namespace PizzaControle
             }
 
             conn.Close();
-            return "Produto Alterado com Sucesso";
+            return "Despesa Registrada com Sucesso";
 
         }
+
+   
 
         public static string add_Cliente(cliente client)
         {
@@ -790,27 +534,7 @@ namespace PizzaControle
 
         }
 
-        public static string add_Funcionario (string nome) {
-        
-            MySqlConnection conn = new MySqlConnection(connStr);
-            try
-            {             
-                conn.Open();
-
-                string sql = "INSERT INTO funcionarios (nome, senha, nivel) VALUES ('"+nome+"','123', '1')";
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                conn.Close();
-                return ex.ToString();
-            }
-
-            conn.Close();
-            return "Funcionário Cadastrado com Sucesso";
-
-        }
+  
 
         public static string add_Entregador(string nome)
         {

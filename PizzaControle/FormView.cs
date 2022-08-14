@@ -11,7 +11,7 @@ namespace PizzaControle
         }
 
         private void FormView_Load(object sender, EventArgs e) {
-            if (database.isConnected()) {
+            if (Database.isConnected()) {
                 statusLabel.Text = "Banco de dados connectado com sucesso";
             }
         }

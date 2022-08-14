@@ -19,18 +19,18 @@ namespace PizzaControle
 
         public static caixa getLastCaixa() {
 
-            return database.GetLastCaixa();
+            return Database.GetLastCaixa();
         }
 
         public static void CloseCaixa(caixa cx) {
 
-            database.CloseCaixa(cx);
+            Database.CloseCaixa(cx);
 
         }
 
         public static void OpenCaixa(decimal initialAmmount) { 
             
-            database.OpenCaixa(initialAmmount);
+            Database.OpenCaixa(initialAmmount);
         }
 
 

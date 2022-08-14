@@ -21,9 +21,9 @@ namespace PizzaControle
         {
             listView1.Items.Clear();
 
-            label_EntregadoresCount.Text = "Entregadores: " + database.GetEntregadores().Count;
+            label_EntregadoresCount.Text = "Entregadores: " + Database.GetEntregadores().Count;
 
-            foreach (var entregador in database.GetEntregadores())
+            foreach (var entregador in Database.GetEntregadores())
             {
 
                 ListViewItem listItem = new ListViewItem();
@@ -49,7 +49,7 @@ namespace PizzaControle
         {
             if (textBoxNome.Text.Length > 1)
             {
-                MessageBox.Show(database.add_Entregador(textBoxNome.Text));
+                MessageBox.Show(Database.add_Entregador(textBoxNome.Text));
 
                 textBoxNome.Clear();
                 panelNewEntregador.Visible = false;
@@ -64,7 +64,7 @@ namespace PizzaControle
 
             if (textBoxNome_altera.Text.Length > 2)
             {
-                database.alterar_Entregador(listView1.SelectedItems[0].SubItems[0].Text, textBoxNome_altera.Text);
+                Database.alterar_Entregador(listView1.SelectedItems[0].SubItems[0].Text, textBoxNome_altera.Text);
 
                 textBoxNome_altera.Clear();
                 panelAlterar.Visible = false;
@@ -110,7 +110,7 @@ namespace PizzaControle
                     DialogResult result = MessageBox.Show("Deseja realmente excluir o Entregador " + listView1.SelectedItems[0].SubItems[1].Text + "?", "Confirmation", MessageBoxButtons.YesNoCancel);
                     if (result == DialogResult.Yes)
                     {
-                        database.excluir_Entregador(listView1.SelectedItems[0].SubItems[0].Text);
+                        Database.excluir_Entregador(listView1.SelectedItems[0].SubItems[0].Text);
                         refreshDate();
                     } else if (result == DialogResult.No)
                     {
