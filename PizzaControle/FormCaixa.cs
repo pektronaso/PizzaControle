@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PizzaControle.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -28,8 +29,12 @@ namespace PizzaControle
                 lb_code.Text = cx.id.ToString();
                 lb_status.Text = "ABERTO";
                 lb_status.ForeColor = Color.LimeGreen;
-                lb_initialAmmount.Text = "R$:" + cx.initial_ammount;
+                lb_Ammount.Text = "R$:" + (cx.initial_ammount - cx.Get_Total_Despesas());
                 lb_OpenAt.Text = cx.created_At.ToString();
+
+                lb_despesas.Text = "R$:" + cx.Get_Total_Despesas();
+
+
 
                 bt_AbrirCaixa.Enabled = false;
                 bt_FecharCaixa.Enabled = true;
@@ -107,7 +112,7 @@ namespace PizzaControle
 
             lb_code.Text = "000";
             lb_movimentacao.Text = "R$0,00";
-            lb_initialAmmount.Text = "R0,00";
+            lb_Ammount.Text = "R0,00";
             lb_despesas.Text = "R$0,00";
             lb_entradas.Text = "R$0,00";
             lb_OpenAt.Text = "00/00/00";

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PizzaControle
+namespace PizzaControle.Models
 {
     internal class cliente
     {
@@ -14,7 +14,7 @@ namespace PizzaControle
         public int numero { get; set; }
         public string? referencia { get; set; }
         public string? telefone { get; set; }
-        
-        
+
+
     }
 }

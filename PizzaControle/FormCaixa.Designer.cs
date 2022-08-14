@@ -40,7 +40,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.lb_despesas = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.lb_initialAmmount = new System.Windows.Forms.Label();
+            this.lb_Ammount = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.pn_AbrirCaixa = new System.Windows.Forms.Panel();
             this.bt_pnAbrirCaixa = new System.Windows.Forms.Button();
@@ -189,15 +189,15 @@
             this.label10.TabIndex = 11;
             this.label10.Text = "Despesas:";
             // 
-            // lb_initialAmmount
+            // lb_Ammount
             // 
-            this.lb_initialAmmount.AutoSize = true;
-            this.lb_initialAmmount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lb_initialAmmount.Location = new System.Drawing.Point(206, 138);
-            this.lb_initialAmmount.Name = "lb_initialAmmount";
-            this.lb_initialAmmount.Size = new System.Drawing.Size(64, 21);
-            this.lb_initialAmmount.TabIndex = 14;
-            this.lb_initialAmmount.Text = "R$ 0,00";
+            this.lb_Ammount.AutoSize = true;
+            this.lb_Ammount.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lb_Ammount.Location = new System.Drawing.Point(206, 138);
+            this.lb_Ammount.Name = "lb_Ammount";
+            this.lb_Ammount.Size = new System.Drawing.Size(64, 21);
+            this.lb_Ammount.TabIndex = 14;
+            this.lb_Ammount.Text = "R$ 0,00";
             // 
             // label5
             // 
@@ -402,7 +402,7 @@
             this.Controls.Add(this.lb_OpenAt);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.pn_FecharCaixa);
-            this.Controls.Add(this.lb_initialAmmount);
+            this.Controls.Add(this.lb_Ammount);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lb_despesas);
             this.Controls.Add(this.label10);
@@ -446,7 +446,7 @@
         private Label label8;
         private Label lb_despesas;
         private Label label10;
-        private Label lb_initialAmmount;
+        private Label lb_Ammount;
         private Label label5;
         private Panel pn_AbrirCaixa;
         private NumericUpDown numericUpDown_AmmountInCaixa;

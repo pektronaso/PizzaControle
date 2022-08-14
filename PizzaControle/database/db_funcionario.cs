@@ -1,4 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
+using PizzaControle.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace PizzaControle
 {
-    
-       internal static partial class Database
+
+    internal static partial class Database
     {
 
 

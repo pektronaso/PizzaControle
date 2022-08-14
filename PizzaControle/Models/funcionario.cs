@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PizzaControle
+namespace PizzaControle.Models
 {
     internal class funcionario
     {
@@ -12,6 +12,13 @@ namespace PizzaControle
         public string? nome { get; set; }
         public int nivel { get; set; }
         public string? senha { get; set; }
+
+
+
+        public static List<funcionario> GetFuncionarios()
+        {
+            return Database.GetFuncionarios();
+        }
 
     }
 }
