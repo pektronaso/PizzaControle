@@ -45,6 +45,7 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.despesaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entradaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
             this.entregadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.trabalhandoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.baterCartãoDeSaídaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,7 +68,6 @@
             this.statusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             this.panel_Action.SuspendLayout();
             this.statusStrip1.SuspendLayout();
@@ -125,33 +125,33 @@
             // funcionárioToolStripMenuItem
             // 
             this.funcionárioToolStripMenuItem.Name = "funcionárioToolStripMenuItem";
-            this.funcionárioToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.funcionárioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.funcionárioToolStripMenuItem.Text = "Funcionário";
             this.funcionárioToolStripMenuItem.Click += new System.EventHandler(this.funcionárioToolStripMenuItem_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(134, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(177, 6);
             // 
             // clienteToolStripMenuItem
             // 
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.clienteToolStripMenuItem.Text = "Cliente";
             this.clienteToolStripMenuItem.Click += new System.EventHandler(this.clienteToolStripMenuItem_Click);
             // 
             // entregadorToolStripMenuItem
             // 
             this.entregadorToolStripMenuItem.Name = "entregadorToolStripMenuItem";
-            this.entregadorToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.entregadorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.entregadorToolStripMenuItem.Text = "Entregador";
             this.entregadorToolStripMenuItem.Click += new System.EventHandler(this.entregadorToolStripMenuItem_Click);
             // 
             // produtoToolStripMenuItem
             // 
             this.produtoToolStripMenuItem.Name = "produtoToolStripMenuItem";
-            this.produtoToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.produtoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.produtoToolStripMenuItem.Text = "Produto";
             this.produtoToolStripMenuItem.Click += new System.EventHandler(this.produtoToolStripMenuItem_Click);
             // 
@@ -197,6 +197,12 @@
             this.entradaToolStripMenuItem.Name = "entradaToolStripMenuItem";
             this.entradaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.entradaToolStripMenuItem.Text = "Entradas";
+            this.entradaToolStripMenuItem.Click += new System.EventHandler(this.entradaToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(177, 6);
             // 
             // entregadoresToolStripMenuItem
             // 
@@ -372,11 +378,6 @@
             this.monthCalendar1.Name = "monthCalendar1";
             this.monthCalendar1.TabIndex = 0;
             // 
-            // toolStripMenuItem5
-            // 
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(177, 6);
-            // 
             // FormView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -412,10 +413,8 @@
         private ToolStripMenuItem aquivoToolStripMenuItem;
         private ToolStripMenuItem sairToolStripMenuItem;
         private ToolStripMenuItem caixaToolStripMenuItem;
-        private ToolStripMenuItem aberturaDeCaixaToolStripMenuItem;
-        private ToolStripMenuItem fechamentoDeCaixaToolStripMenuItem;
+        private ToolStripMenuItem aberturaDeCaixaToolStripMenuItem;        
         private ToolStripSeparator toolStripMenuItem1;
-        private ToolStripMenuItem movimentaçãoAtualToolStripMenuItem;
         private ToolStripSeparator toolStripMenuItem2;
         private ToolStripMenuItem despesaToolStripMenuItem;
         private ToolStripMenuItem entradaToolStripMenuItem;

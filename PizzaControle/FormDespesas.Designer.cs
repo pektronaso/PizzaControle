@@ -38,7 +38,7 @@
             this.btNovo = new System.Windows.Forms.PictureBox();
             this.lb_totalValue = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lb_Caixa = new System.Windows.Forms.Label();
             this.pn_newDespesa = new System.Windows.Forms.Panel();
             this.bt_pnNewDespesa_confirma = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -126,7 +126,7 @@
             this.lb_totalValue.AutoSize = true;
             this.lb_totalValue.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lb_totalValue.ForeColor = System.Drawing.Color.Red;
-            this.lb_totalValue.Location = new System.Drawing.Point(614, 382);
+            this.lb_totalValue.Location = new System.Drawing.Point(604, 383);
             this.lb_totalValue.Name = "lb_totalValue";
             this.lb_totalValue.Size = new System.Drawing.Size(64, 21);
             this.lb_totalValue.TabIndex = 36;
@@ -143,16 +143,16 @@
             this.label11.TabIndex = 35;
             this.label11.Text = "Total Despesas:";
             // 
-            // label5
+            // lb_Caixa
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label5.ForeColor = System.Drawing.Color.Red;
-            this.label5.Location = new System.Drawing.Point(314, 382);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(87, 21);
-            this.label5.TabIndex = 37;
-            this.label5.Text = "Caixa: 000";
+            this.lb_Caixa.AutoSize = true;
+            this.lb_Caixa.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lb_Caixa.ForeColor = System.Drawing.Color.Red;
+            this.lb_Caixa.Location = new System.Drawing.Point(314, 382);
+            this.lb_Caixa.Name = "lb_Caixa";
+            this.lb_Caixa.Size = new System.Drawing.Size(87, 21);
+            this.lb_Caixa.TabIndex = 37;
+            this.lb_Caixa.Text = "Caixa: 000";
             // 
             // pn_newDespesa
             // 
@@ -226,7 +226,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(717, 450);
             this.Controls.Add(this.pn_newDespesa);
-            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lb_Caixa);
             this.Controls.Add(this.lb_totalValue);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label3);
@@ -236,6 +236,7 @@
             this.Controls.Add(this.listView1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FormDespesas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Despesas";
             this.Load += new System.EventHandler(this.FormDespesas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.btExclui)).EndInit();
@@ -260,7 +261,7 @@
         private PictureBox btNovo;
         private Label lb_totalValue;
         private Label label11;
-        private Label label5;
+        private Label lb_Caixa;
         private Panel pn_newDespesa;
         private Label label6;
         private TextBox tb_pnNewDespesa_comment;

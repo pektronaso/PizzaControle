@@ -29,10 +29,11 @@ namespace PizzaControle
                 lb_code.Text = cx.id.ToString();
                 lb_status.Text = "ABERTO";
                 lb_status.ForeColor = Color.LimeGreen;
-                lb_Ammount.Text = "R$:" + (cx.initial_ammount - cx.Get_Total_Despesas());
+                lb_Ammount.Text = "R$:" + (cx.initial_ammount - cx.Get_Total_Despesas() + cx.Get_Total_Entradas());  // <---- FORMULES ---->
                 lb_OpenAt.Text = cx.created_At.ToString();
 
                 lb_despesas.Text = "R$:" + cx.Get_Total_Despesas();
+                lb_entradas.Text = "R$"  + cx.Get_Total_Entradas();
 
 
 

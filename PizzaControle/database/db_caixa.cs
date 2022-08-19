@@ -12,32 +12,6 @@ namespace PizzaControle
     {
 
 
-        public static string add_entrada(int caixaId, decimal value, string comment)
-        {
-
-            MySqlConnection conn = new MySqlConnection(connStr);
-            try
-            {
-                conn.Open();
-
-                string sql = "INSERT INTO `entradas` (`caixaId`, `ammount`, `comment`) VALUES ('" + caixaId + "', '" + value + "', '" + comment + "')";
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception ex)
-            {
-                conn.Close();
-                return ex.ToString();
-            }
-
-            conn.Close();
-            return "Despesa Registrada com Sucesso";
-
-        }
-
-        
-
-
         public static caixa GetLastCaixa()
         {
 
@@ -92,7 +66,7 @@ namespace PizzaControle
             {
                 conn.Open();
 
-                string sql = "INSERT INTO `caixas` (`initial_ammount`) VALUES ('" + openValue.ToString().Replace(',', '.') + "')";
+                string sql = "INSERT INTO `caixas` (`initial_ammount`,`created_at`) VALUES ('" + openValue.ToString().Replace(',', '.') + "','"+ DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "')";
 
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.ExecuteNonQuery();

@@ -35,6 +35,25 @@ namespace PizzaControle.Models
             Database.OpenCaixa(initialAmmount);
         }
 
+
+        public static void add_Entrada(int caixaId, decimal value, string comment)
+        {
+
+            Database.add_entrada(caixaId, value, comment);
+        }
+
+        public static void remove_Entrada(string id)
+        {
+
+            Database.excluir_Entrada(id);
+        }
+
+        public static List<entrada> Get_Entradas(int caixaId)
+        {
+
+            return Database.Get_Entradas(caixaId);
+        }
+
         public static List<despesa> Get_Despesas(int caixaId) {
 
             return Database.Get_Despesas(caixaId);
@@ -57,6 +76,16 @@ namespace PizzaControle.Models
             foreach (despesa desp in Database.Get_Despesas(getLastCaixa().id))
             {
                 total += desp.ammount;
+            }
+            return total;
+        }
+
+        public decimal Get_Total_Entradas()
+        {
+            decimal total = 0;
+            foreach (entrada entr in Database.Get_Entradas(getLastCaixa().id))
+            {
+                total += entr.ammount;
             }
             return total;
         }

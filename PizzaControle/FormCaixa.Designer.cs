@@ -214,7 +214,7 @@
             this.pn_AbrirCaixa.Controls.Add(this.bt_pnAbrirCaixa);
             this.pn_AbrirCaixa.Controls.Add(this.numericUpDown_AmmountInCaixa);
             this.pn_AbrirCaixa.Controls.Add(this.label2);
-            this.pn_AbrirCaixa.Location = new System.Drawing.Point(0, 0);
+            this.pn_AbrirCaixa.Location = new System.Drawing.Point(181, 138);
             this.pn_AbrirCaixa.Name = "pn_AbrirCaixa";
             this.pn_AbrirCaixa.Size = new System.Drawing.Size(380, 100);
             this.pn_AbrirCaixa.TabIndex = 15;
@@ -260,7 +260,6 @@
             this.pn_FecharCaixa.Controls.Add(this.bt_pnFecharCaixa);
             this.pn_FecharCaixa.Controls.Add(this.numericUpDown_FecharAmmount);
             this.pn_FecharCaixa.Controls.Add(this.label6);
-            this.pn_FecharCaixa.Controls.Add(this.pn_AbrirCaixa);
             this.pn_FecharCaixa.Location = new System.Drawing.Point(181, 138);
             this.pn_FecharCaixa.Name = "pn_FecharCaixa";
             this.pn_FecharCaixa.Size = new System.Drawing.Size(380, 100);
@@ -393,6 +392,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(704, 405);
+            this.Controls.Add(this.pn_AbrirCaixa);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label12);

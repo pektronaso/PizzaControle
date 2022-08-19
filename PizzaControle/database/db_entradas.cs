@@ -10,15 +10,17 @@ namespace PizzaControle
 {
     internal static partial class Database
     {
-        public static string add_despesa(int caixaId, decimal value, string comment)
-        {
 
+
+        public static string add_entrada(int caixaId, decimal value, string comment)
+        {
+            
             MySqlConnection conn = new MySqlConnection(connStr);
             try
             {
                 conn.Open();
 
-                string sql = "INSERT INTO `despesas` (`caixaId`, `ammount`, `created_at` ,`comment`) VALUES ('" + caixaId + "', '" + value.ToString().Replace(',','.') + "', '"+ DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' ,'" + comment + "')";
+                string sql = "INSERT INTO `entradas` (`caixaId`, `ammount`, `created_at` ,`comment`) VALUES ('" + caixaId + "', '" + value.ToString().Replace(',', '.') + "', '" + DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' ,'" + comment + "')";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.ExecuteNonQuery();
             }
@@ -33,7 +35,7 @@ namespace PizzaControle
 
         }
 
-        public static void excluir_Despesa(string id)
+        public static void excluir_Entrada(string id)
         {
 
             MySqlConnection conn = new MySqlConnection(connStr);
@@ -41,7 +43,7 @@ namespace PizzaControle
             {
                 conn.Open();
 
-                string sql = "DELETE FROM `despesas` WHERE (`id`='" + id + "') LIMIT 1";
+                string sql = "DELETE FROM `entradas` WHERE (`id`='" + id + "') LIMIT 1";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.ExecuteNonQuery();
             }
@@ -55,7 +57,7 @@ namespace PizzaControle
         }
 
 
-        public static List<despesa> Get_Despesas(int caixaId)
+        public static List<entrada> Get_Entradas(int caixaId)
         {
 
             MySqlConnection conn = new MySqlConnection(connStr);
@@ -64,31 +66,31 @@ namespace PizzaControle
 
                 conn.Open();
 
-                string sql = "SELECT * FROM despesas WHERE caixaId = '"+caixaId+"'";
+                string sql = "SELECT * FROM entradas WHERE caixaId = '" + caixaId + "'";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
 
                 MySqlDataReader rdr = cmd.ExecuteReader();
-                
-                List<despesa> despesas = new List<despesa>();
 
-                
+                List<entrada> entradas = new List<entrada>();
+
+
                 while (rdr.Read())
                 {
-                    despesa dsp = new despesa();
+                    entrada entr = new entrada();
 
-                    dsp.Id = Convert.ToInt32(rdr["id"].ToString());
-                    dsp.caixaId = Convert.ToInt32(rdr["caixaId"].ToString());
-                    dsp.ammount = (decimal)rdr["ammount"];
-                    dsp.created_at = (DateTime)rdr["created_at"];
-                    dsp.comment = rdr["comment"].ToString();
+                    entr.Id = Convert.ToInt32(rdr["id"].ToString());
+                    entr.caixaId = Convert.ToInt32(rdr["caixaId"].ToString());
+                    entr.ammount = (decimal)rdr["ammount"];
+                    entr.created_at = (DateTime)rdr["created_at"];
+                    entr.comment = rdr["comment"].ToString();
 
-                    despesas.Add(dsp);
+                    entradas.Add(entr);
 
                 }
 
                 conn.Close();
 
-                return despesas;
+                return entradas;
 
 
 
@@ -96,14 +98,9 @@ namespace PizzaControle
             catch (Exception)
             {
                 conn.Close();
-                return new List<despesa>();
+                return new List<entrada>();
             }
 
         }
-
-
-        
-
-
     }
 }

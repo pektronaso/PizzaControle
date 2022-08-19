@@ -41,7 +41,11 @@ namespace PizzaControle
         {
             OpenSingleton("Despesas");
         }
-
+        
+        private void entradaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenSingleton("Entradas");
+        }
 
         private void OpenSingleton(string form) {
             
@@ -84,14 +88,17 @@ namespace PizzaControle
                         FormDespesas formDespesa = new FormDespesas();
                         formDespesa.Show();
                         break;
-
+                    case "Entradas":
+                        FormEntradas formEntrada = new FormEntradas();
+                        formEntrada.Show();
+                        break;
 
                 }
 
             }
         }
 
-      
+     
     }
     
 }
