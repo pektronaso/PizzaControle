@@ -47,6 +47,11 @@ namespace PizzaControle
             OpenSingleton("Entradas");
         }
 
+        private void trabalhandoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenSingleton("Entrada de Entregador"); 
+        }
+
         private void OpenSingleton(string form) {
             
             int totalForms = Application.OpenForms.Count;
@@ -92,13 +97,19 @@ namespace PizzaControle
                         FormEntradas formEntrada = new FormEntradas();
                         formEntrada.Show();
                         break;
-
+                    case "Entrada de Entregador":
+                        FormEntradaEntregador formEntradaentregador = new FormEntradaEntregador();
+                        formEntradaentregador.Show();
+                        break;
                 }
 
             }
         }
 
-     
+        private void bt_NovoPedido_Click(object sender, EventArgs e)
+        {
+
+        }
     }
     
 }

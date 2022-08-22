@@ -16,6 +16,11 @@ namespace PizzaControle.Models
         public decimal initial_ammount { get; set; }
 
 
+        public static bool ExistsOpenCaixa()
+        {
+            return Database.ExistsOpenCaixa();
+        }
+
         public static caixa getLastCaixa()
         {
 
