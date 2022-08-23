@@ -12,6 +12,55 @@ namespace PizzaControle
     {
 
 
+        public static string entregadorCheckIn(string entregadorId)
+        {
+
+             MySqlConnection conn = new MySqlConnection(connStr);
+            try
+            {
+                conn.Open();
+
+                string sql = "INSERT INTO `entregadorservice` (`caixaId`, `entregadorId`, `inDate`) VALUES ('"+caixa.getLastCaixa().id+"', '"+ entregadorId + "', '"+ DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "')";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                return ex.ToString();
+            }
+
+            conn.Close();
+            return "CheckIn de Entregador Registrado com Sucesso";
+
+
+        }
+
+        public static string entregadorCheckOut(string entregadorServiceId)
+        {
+
+            MySqlConnection conn = new MySqlConnection(connStr);
+            try
+            {
+                conn.Open();
+
+                string sql = "UPDATE `entregadorservice` SET `outDate`='"+ DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss") + "' WHERE (`id`='"+ entregadorServiceId + "') LIMIT 1";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+                return ex.ToString();
+            }
+
+            conn.Close();
+            return "CheckIn de Entregador Registrado com Sucesso";
+
+
+        }
+
+
         public static List<entregador> Get_EntregadoresDisponible()
         {
 
@@ -45,14 +94,13 @@ namespace PizzaControle
                     while (rdr.Read())
                     {
 
+                        // MANUAL SERIALIZE
                         entregadorService es = new entregadorService();
-
                         es.id = (int)rdr["id"];
-
                         es.entregadorId = (int)rdr["entregadorId"];
-
-                        es.inDate = (DateTime)rdr["inDate"];
+                        //es.inDate = (DateTime)rdr["inDate"];
                         serviceList.Add(es);
+                        // MANUAL SERIALIZE
                     }
 
 
@@ -124,7 +172,8 @@ namespace PizzaControle
 
                     es.entregadorId = (int)rdr["entregadorId"];
 
-                    es.inDate = (DateTime)rdr["inDate"];
+                    //es.inDate = (DateTime)rdr["inDate"];
+
                     serviceList.Add(es);
                 }
 
@@ -132,17 +181,25 @@ namespace PizzaControle
 
                 for (int i = 0; i < GetEntregadores().Count; i++)
                 {
+                    int srvID = 0;
                     bool Disponible = true;
                     foreach (var srv in serviceList)
                     {
                         if (srv.entregadorId == GetEntregadores()[i].id)
                         {
                             Disponible = false;
+                            srvID = srv.id;
+                            
                         }
 
                     }
 
-                    if (!Disponible) entregadorList.Add(GetEntregadores()[i]);
+                    if (!Disponible)
+                    {
+                        entregador entr = GetEntregadores()[i];
+                        entr.inServiceID = srvID;
+                        entregadorList.Add(entr);
+                    }
 
                 }
 

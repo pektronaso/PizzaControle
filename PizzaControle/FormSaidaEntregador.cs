@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace PizzaControle
 {
-    public partial class FormEntradaEntregador : Form
+    public partial class FormSaidaEntregador : Form
     {
-        public FormEntradaEntregador()
+        public FormSaidaEntregador()
         {
             InitializeComponent();
         }
@@ -22,16 +22,18 @@ namespace PizzaControle
         {
             listView1.Items.Clear();
 
-            
 
-            foreach (var entregadorDisponible in entregadorService.Get_EntregadoresDisponible())
+
+            foreach (var entregadorInDisponible in entregadorService.Get_EntregadoresIndisponible())
             {
 
                 ListViewItem listItem = new ListViewItem();
 
-                listItem.Text = entregadorDisponible.id.ToString();
+                listItem.Text = entregadorInDisponible.id.ToString();
 
-                listItem.SubItems.Add(entregadorDisponible.nome);
+                listItem.SubItems.Add(entregadorInDisponible.nome);
+
+                listItem.SubItems.Add(entregadorInDisponible.inServiceID.ToString());
 
 
                 listView1.Items.Add(listItem);
@@ -39,21 +41,17 @@ namespace PizzaControle
         }
 
 
-        private void FormEntradaEntregador_Load(object sender, EventArgs e)
+        private void FormSaidaEntregador_Load(object sender, EventArgs e)
         {
             refreshData();
         }
-
-
-
-
 
 
         private void listView1_DoubleClick(object sender, EventArgs e)
         {
             if (listView1.SelectedItems.Count > 0)
             {
-                string result = entregadorService.entregadorCheckIn( listView1.SelectedItems[0].Text );
+                string result = entregadorService.entregadorCheckOut(listView1.SelectedItems[0].SubItems[2].Text);
 
                 MessageBox.Show(result);
 

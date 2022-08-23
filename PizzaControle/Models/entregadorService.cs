@@ -15,5 +15,29 @@ namespace PizzaControle.Models
         public DateTime outDate { get; set; }
 
 
-    }
+
+        public static string entregadorCheckIn(string entregadorId)
+        {
+            return Database.entregadorCheckIn(entregadorId);
+        }
+
+        
+            public static string entregadorCheckOut(string entregadorServiceId)
+        {
+            return Database.entregadorCheckOut(entregadorServiceId);
+        }
+
+
+        public static List<entregador> Get_EntregadoresDisponible()
+        {
+            return Database.Get_EntregadoresDisponible();
+        }
+
+        public static List<entregador> Get_EntregadoresIndisponible()
+        {
+            return Database.Get_EntregadoresIndisponible();
+        }
+
+
+        }
 }
