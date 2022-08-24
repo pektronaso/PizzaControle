@@ -50,7 +50,6 @@
             this.trabalhandoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.baterCartãoDeSaídaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
-            this.emServiçoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relátorioDeCaixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relátorioDeVendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -209,8 +208,7 @@
             this.entregadoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.trabalhandoToolStripMenuItem,
             this.baterCartãoDeSaídaToolStripMenuItem,
-            this.toolStripMenuItem4,
-            this.emServiçoToolStripMenuItem});
+            this.toolStripMenuItem4});
             this.entregadoresToolStripMenuItem.Name = "entregadoresToolStripMenuItem";
             this.entregadoresToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
             this.entregadoresToolStripMenuItem.Text = "Entregadores";
@@ -233,12 +231,6 @@
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
             this.toolStripMenuItem4.Size = new System.Drawing.Size(177, 6);
-            // 
-            // emServiçoToolStripMenuItem
-            // 
-            this.emServiçoToolStripMenuItem.Name = "emServiçoToolStripMenuItem";
-            this.emServiçoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.emServiçoToolStripMenuItem.Text = "Em Serviço";
             // 
             // relatóriosToolStripMenuItem
             // 

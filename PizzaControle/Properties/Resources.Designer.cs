@@ -83,6 +83,16 @@ namespace PizzaControle.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap balcao {
+            get {
+                object obj = ResourceManager.GetObject("balcao", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap bebidas {
             get {
                 object obj = ResourceManager.GetObject("bebidas", resourceCulture);
@@ -123,9 +133,30 @@ namespace PizzaControle.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ifood {
+            get {
+                object obj = ResourceManager.GetObject("ifood", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pizzas {
             get {
                 object obj = ResourceManager.GetObject("pizzas", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap png_transparent_phone_logo_whatsapp_computer_icons_blackberry_10_mobile_phones_instant_messaging_icon_whatsapp_grass_symbol_mobile_app {
+            get {
+                object obj = ResourceManager.GetObject("png-transparent-phone-logo-whatsapp-computer-icons-blackberry-10-mobile-phones-in" +
+                        "stant-messaging-icon-whatsapp-grass-symbol-mobile-app", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

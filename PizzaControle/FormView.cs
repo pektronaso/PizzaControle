@@ -57,6 +57,12 @@ namespace PizzaControle
             OpenSingleton("CheckOut Entregador");
         }
 
+        private void bt_NovoPedido_Click(object sender, EventArgs e)
+        {
+            OpenSingleton("Novo Pedido");
+        }
+
+
         private void OpenSingleton(string form) {
             
             int totalForms = Application.OpenForms.Count;
@@ -111,15 +117,19 @@ namespace PizzaControle
                         FormSaidaEntregador formSaidaentregador = new FormSaidaEntregador();
                         formSaidaentregador.Show();
                         break;
+
+                    case "Novo Pedido":
+                        FormNewPedido formNewPedido = new FormNewPedido();
+                        formNewPedido.Show();
+                        break;
+
+
                 }
 
             }
         }
 
-        private void bt_NovoPedido_Click(object sender, EventArgs e)
-        {
-
-        }
+        
 
       
     }

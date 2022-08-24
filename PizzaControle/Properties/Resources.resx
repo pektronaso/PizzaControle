@@ -124,22 +124,31 @@
   <data name="remove-user" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\remove-user.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="icon_pizza" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\icon_pizza.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="bebidas" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bebidas.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="1974637" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\1974637.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="bebidas-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\bebidas-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="balcao" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\balcao.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="add-user-vector-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add-user-vector-icon.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ifood" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ifood.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="pizzas" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\pizzas.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="bebidas-icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\bebidas-icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="icon_pizza" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\icon_pizza.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="png-transparent-phone-logo-whatsapp-computer-icons-blackberry-10-mobile-phones-instant-messaging-icon-whatsapp-grass-symbol-mobile-app" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\png-transparent-phone-logo-whatsapp-computer-icons-blackberry-10-mobile-phones-instant-messaging-icon-whatsapp-grass-symbol-mobile-app.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
