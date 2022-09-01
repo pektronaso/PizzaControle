@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader_id = new System.Windows.Forms.ColumnHeader();
             this.columnHeader_produto = new System.Windows.Forms.ColumnHeader();
@@ -99,6 +100,9 @@
             this.columnHeader8 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
+            this.listView3 = new System.Windows.Forms.ListView();
+            this.label11 = new System.Windows.Forms.Label();
+            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
             ((System.ComponentModel.ISupportInitialize)(this.btExclui)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btNovo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btAlterar)).BeginInit();
@@ -814,11 +818,42 @@
             this.columnHeader7.Text = "Descrição";
             this.columnHeader7.Width = 520;
             // 
+            // listView3
+            // 
+            this.listView3.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader3});
+            this.listView3.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1});
+            this.listView3.Location = new System.Drawing.Point(1144, 67);
+            this.listView3.Name = "listView3";
+            this.listView3.Size = new System.Drawing.Size(339, 394);
+            this.listView3.TabIndex = 48;
+            this.listView3.UseCompatibleStateImageBehavior = false;
+            this.listView3.View = System.Windows.Forms.View.Details;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label11.ForeColor = System.Drawing.Color.DarkBlue;
+            this.label11.Location = new System.Drawing.Point(1144, 32);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(211, 30);
+            this.label11.TabIndex = 49;
+            this.label11.Text = "0 Items no carrinho.";
+            this.label11.Click += new System.EventHandler(this.label11_Click);
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Width = 120;
+            // 
             // FormProdutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1118, 711);
+            this.ClientSize = new System.Drawing.Size(1495, 711);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.listView3);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.radioButton_bebidas);
@@ -943,5 +978,8 @@
         private Label lb_pizza_Salvar;
         private PictureBox bt_pizzas_altera;
         private PictureBox bt_bebidas_altera;
+        private ListView listView3;
+        private Label label11;
+        private ColumnHeader columnHeader3;
     }
 }

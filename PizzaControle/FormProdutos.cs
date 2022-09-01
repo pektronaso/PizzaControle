@@ -14,11 +14,26 @@ namespace PizzaControle
     public partial class FormProdutos : Form
     {
 
+        private bool SellMode = false;
+
+
         public FormProdutos()
         {
             InitializeComponent();
         }
 
+        public FormProdutos(bool sellMode)
+        {         
+            InitializeComponent();
+
+            if (sellMode)
+            {
+                this.SellMode = sellMode;
+                this.Size = new Size(1134,674);          
+                
+            }
+            
+        }
 
 
         private void refreshDateWithSearch(string key, string value)
@@ -623,6 +638,11 @@ namespace PizzaControle
                     refreshDate("bebidas");
                 }
             }
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

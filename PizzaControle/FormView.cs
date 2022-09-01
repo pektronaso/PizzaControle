@@ -63,7 +63,7 @@ namespace PizzaControle
         }
 
 
-        private void OpenSingleton(string form) {
+        public static void OpenSingleton(string form) {
             
             int totalForms = Application.OpenForms.Count;
             int formIndex = 0;
@@ -121,6 +121,10 @@ namespace PizzaControle
                     case "Novo Pedido":
                         FormNewPedido formNewPedido = new FormNewPedido();
                         formNewPedido.Show();
+                        break;
+                    case "prod_ModoVenda":
+                        FormProdutos formProdModoVenda = new FormProdutos(true);
+                        formProdModoVenda.Show();
                         break;
 
 

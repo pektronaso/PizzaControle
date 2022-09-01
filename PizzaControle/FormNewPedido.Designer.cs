@@ -68,6 +68,7 @@
             this.picBalcao.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picBalcao.TabIndex = 3;
             this.picBalcao.TabStop = false;
+            this.picBalcao.Click += new System.EventHandler(this.picBalcao_Click);
             // 
             // label4
             // 
@@ -108,6 +109,7 @@
             this.picIfood.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picIfood.TabIndex = 4;
             this.picIfood.TabStop = false;
+            this.picIfood.Click += new System.EventHandler(this.picIfood_Click);
             // 
             // label5
             // 
@@ -169,12 +171,13 @@
             this.picTel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picTel.TabIndex = 1;
             this.picTel.TabStop = false;
+            this.picTel.Click += new System.EventHandler(this.picTel_Click);
             // 
             // FormNewPedido
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(793, 335);
+            this.ClientSize = new System.Drawing.Size(803, 320);
             this.Controls.Add(this.pnTel);
             this.Controls.Add(this.pnIfood);
             this.Controls.Add(this.pnBalcao);
@@ -182,6 +185,7 @@
             this.Name = "FormNewPedido";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Novo Pedido";
+            this.Load += new System.EventHandler(this.FormNewPedido_Load);
             this.pnBalcao.ResumeLayout(false);
             this.pnBalcao.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picBalcao)).EndInit();
