@@ -29,7 +29,8 @@ namespace PizzaControle
             if (sellMode)
             {
                 this.SellMode = sellMode;
-                this.Size = new Size(1134,674);          
+                this.Size = new Size(1511, 690);          
+
                 
             }
             
@@ -640,7 +641,46 @@ namespace PizzaControle
             }
         }
 
-        private void label11_Click(object sender, EventArgs e)
+        private void listView2_DoubleClick(object sender, EventArgs e)
+        {
+            if (listView2.SelectedItems.Count > 0)
+            {
+                listView1.SelectedItems.Clear();
+
+
+                ListViewItem listItem = new ListViewItem();
+
+                listItem.Text = listView2.SelectedItems[0].Text;
+
+                listItem.SubItems.Add(listView2.SelectedItems[0].SubItems[1].Text);
+
+                listViewCart.Items.Add(listItem);
+
+
+            }
+        }
+
+        private void listView1_DoubleClick(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0)
+            {
+                listView2.SelectedItems.Clear();
+
+
+                ListViewItem listItem = new ListViewItem();  
+                
+                listItem.Text = listView1.SelectedItems[0].Text;
+
+                listItem.SubItems.Add(listView1.SelectedItems[0].SubItems[1].Text);
+
+                listViewCart.Items.Add(listItem);
+
+
+            }
+            
+        }
+
+        private void button_confirmar_Click(object sender, EventArgs e)
         {
 
         }

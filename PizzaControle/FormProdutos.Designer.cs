@@ -28,7 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem("");
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+            "0",
+            "aaaa",
+            "5,50"}, -1);
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader_id = new System.Windows.Forms.ColumnHeader();
             this.columnHeader_produto = new System.Windows.Forms.ColumnHeader();
@@ -100,9 +103,13 @@
             this.columnHeader8 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
-            this.listView3 = new System.Windows.Forms.ListView();
-            this.label11 = new System.Windows.Forms.Label();
+            this.listViewCart = new System.Windows.Forms.ListView();
             this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
+            this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.button_confirmar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.btExclui)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btNovo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btAlterar)).BeginInit();
@@ -144,6 +151,7 @@
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.DoubleClick += new System.EventHandler(this.listView1_DoubleClick);
             // 
             // columnHeader_id
             // 
@@ -790,6 +798,7 @@
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
             this.listView2.Visible = false;
+            this.listView2.DoubleClick += new System.EventHandler(this.listView2_DoubleClick);
             // 
             // columnHeader1
             // 
@@ -818,18 +827,36 @@
             this.columnHeader7.Text = "Descrição";
             this.columnHeader7.Width = 520;
             // 
-            // listView3
+            // listViewCart
             // 
-            this.listView3.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader3});
-            this.listView3.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            this.listViewCart.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeader3,
+            this.columnHeader4,
+            this.columnHeader5});
+            this.listViewCart.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.listViewCart.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1});
-            this.listView3.Location = new System.Drawing.Point(1144, 67);
-            this.listView3.Name = "listView3";
-            this.listView3.Size = new System.Drawing.Size(339, 394);
-            this.listView3.TabIndex = 48;
-            this.listView3.UseCompatibleStateImageBehavior = false;
-            this.listView3.View = System.Windows.Forms.View.Details;
+            this.listViewCart.Location = new System.Drawing.Point(1144, 67);
+            this.listViewCart.Name = "listViewCart";
+            this.listViewCart.Size = new System.Drawing.Size(339, 394);
+            this.listViewCart.TabIndex = 48;
+            this.listViewCart.UseCompatibleStateImageBehavior = false;
+            this.listViewCart.View = System.Windows.Forms.View.Details;
+            // 
+            // columnHeader3
+            // 
+            this.columnHeader3.Text = "id";
+            this.columnHeader3.Width = 50;
+            // 
+            // columnHeader4
+            // 
+            this.columnHeader4.Text = "Produto";
+            this.columnHeader4.Width = 200;
+            // 
+            // columnHeader5
+            // 
+            this.columnHeader5.Text = "Preço";
+            this.columnHeader5.Width = 80;
             // 
             // label11
             // 
@@ -841,19 +868,39 @@
             this.label11.Size = new System.Drawing.Size(211, 30);
             this.label11.TabIndex = 49;
             this.label11.Text = "0 Items no carrinho.";
-            this.label11.Click += new System.EventHandler(this.label11_Click);
             // 
-            // columnHeader3
+            // label12
             // 
-            this.columnHeader3.Width = 120;
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label12.ForeColor = System.Drawing.Color.DarkBlue;
+            this.label12.Location = new System.Drawing.Point(1330, 464);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(141, 30);
+            this.label12.TabIndex = 50;
+            this.label12.Text = "Total: R$0,00";
+            // 
+            // button_confirmar
+            // 
+            this.button_confirmar.Font = new System.Drawing.Font("Segoe UI", 13.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.button_confirmar.ForeColor = System.Drawing.Color.DarkBlue;
+            this.button_confirmar.Location = new System.Drawing.Point(1323, 587);
+            this.button_confirmar.Name = "button_confirmar";
+            this.button_confirmar.Size = new System.Drawing.Size(160, 43);
+            this.button_confirmar.TabIndex = 51;
+            this.button_confirmar.Text = "Confirmar";
+            this.button_confirmar.UseVisualStyleBackColor = true;
+            this.button_confirmar.Click += new System.EventHandler(this.button_confirmar_Click);
             // 
             // FormProdutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1495, 711);
+            this.Controls.Add(this.button_confirmar);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.listView3);
+            this.Controls.Add(this.listViewCart);
             this.Controls.Add(this.label24);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.radioButton_bebidas);
@@ -870,8 +917,9 @@
             this.Controls.Add(this.tb_search_id);
             this.Controls.Add(this.panel_Bebidas);
             this.Controls.Add(this.panel_Pizzas);
-            this.Controls.Add(this.listView2);
             this.Controls.Add(this.listView1);
+            this.Controls.Add(this.listView2);
+            this.ForeColor = System.Drawing.Color.IndianRed;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "FormProdutos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -978,8 +1026,12 @@
         private Label lb_pizza_Salvar;
         private PictureBox bt_pizzas_altera;
         private PictureBox bt_bebidas_altera;
-        private ListView listView3;
+        private ListView listViewCart;
         private Label label11;
         private ColumnHeader columnHeader3;
+        private Label label12;
+        private ColumnHeader columnHeader4;
+        private ColumnHeader columnHeader5;
+        private Button button_confirmar;
     }
 }
