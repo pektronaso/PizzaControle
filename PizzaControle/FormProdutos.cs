@@ -22,13 +22,13 @@ namespace PizzaControle
             InitializeComponent();
         }
 
-        public FormProdutos(bool sellMode)
+        public FormProdutos(bool sellModeChoice)
         {         
             InitializeComponent();
 
-            if (sellMode)
+            if (sellModeChoice)
             {
-                this.SellMode = sellMode;
+                this.SellMode = sellModeChoice;
                 this.Size = new Size(1511, 690);          
 
                 
@@ -643,10 +643,10 @@ namespace PizzaControle
 
         private void listView2_DoubleClick(object sender, EventArgs e)
         {
-            if (listView2.SelectedItems.Count > 0)
-            {
-                listView1.SelectedItems.Clear();
+            if (SellMode)
+                if (listView2.SelectedItems.Count > 0) {
 
+                listView1.SelectedItems.Clear();
 
                 ListViewItem listItem = new ListViewItem();
 
@@ -656,33 +656,88 @@ namespace PizzaControle
 
                 listViewCart.Items.Add(listItem);
 
-
             }
         }
 
         private void listView1_DoubleClick(object sender, EventArgs e)
         {
-            if (listView1.SelectedItems.Count > 0)
-            {
-                listView2.SelectedItems.Clear();
-
-
-                ListViewItem listItem = new ListViewItem();  
-                
-                listItem.Text = listView1.SelectedItems[0].Text;
-
-                listItem.SubItems.Add(listView1.SelectedItems[0].SubItems[1].Text);
-
-                listViewCart.Items.Add(listItem);
-
-
+            if (SellMode){
+                pnChoiceSize.Visible = true;
+                pnChoiceSize.BringToFront();
             }
+                
             
         }
 
         private void button_confirmar_Click(object sender, EventArgs e)
         {
 
+        }
+
+
+
+
+        private void bt_priceOne_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0)
+            {
+                listView2.SelectedItems.Clear();
+
+                ListViewItem listItem = new ListViewItem();
+
+                listItem.Text = listView1.SelectedItems[0].Text;
+
+                listItem.SubItems.Add(listView1.SelectedItems[0].SubItems[1].Text);
+                
+                listItem.SubItems.Add(listView1.SelectedItems[0].SubItems[2].Text);
+
+                listViewCart.Items.Add(listItem);
+
+                pnChoiceSize.Visible = false;
+
+            }
+        }
+
+        private void bt_priceTwo_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0)
+            {
+                listView2.SelectedItems.Clear();
+
+                ListViewItem listItem = new ListViewItem();
+
+                listItem.Text = listView1.SelectedItems[0].Text;
+
+                listItem.SubItems.Add(listView1.SelectedItems[0].SubItems[1].Text);
+
+                listItem.SubItems.Add(listView1.SelectedItems[0].SubItems[3].Text);
+
+
+
+                listViewCart.Items.Add(listItem);
+
+                pnChoiceSize.Visible = false;
+            }
+        }
+
+        private void bt_priceThree_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedItems.Count > 0)
+            {
+                listView2.SelectedItems.Clear();
+
+                ListViewItem listItem = new ListViewItem();
+
+                listItem.Text = listView1.SelectedItems[0].Text;
+
+                listItem.SubItems.Add(listView1.SelectedItems[0].SubItems[1].Text);
+
+                listItem.SubItems.Add(listView1.SelectedItems[0].SubItems[4].Text);
+
+                listViewCart.Items.Add(listItem);
+
+                pnChoiceSize.Visible = false;
+            }
         }
     }
 }

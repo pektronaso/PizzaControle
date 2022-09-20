@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new string[] {
             "0",
             "aaaa",
             "5,50"}, -1);
@@ -108,8 +108,12 @@
             this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
             this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
+            this.lb_Total = new System.Windows.Forms.Label();
             this.button_confirmar = new System.Windows.Forms.Button();
+            this.pnChoiceSize = new System.Windows.Forms.Panel();
+            this.bt_priceThree = new System.Windows.Forms.PictureBox();
+            this.bt_priceTwo = new System.Windows.Forms.PictureBox();
+            this.bt_priceOne = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.btExclui)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btNovo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btAlterar)).BeginInit();
@@ -130,6 +134,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.bt_panelSelectTipo_choicePizza)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.pnChoiceSize.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.bt_priceThree)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bt_priceTwo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bt_priceOne)).BeginInit();
             this.SuspendLayout();
             // 
             // listView1
@@ -835,7 +843,7 @@
             this.columnHeader5});
             this.listViewCart.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.listViewCart.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem1});
+            listViewItem5});
             this.listViewCart.Location = new System.Drawing.Point(1144, 67);
             this.listViewCart.Name = "listViewCart";
             this.listViewCart.Size = new System.Drawing.Size(339, 394);
@@ -869,16 +877,16 @@
             this.label11.TabIndex = 49;
             this.label11.Text = "0 Items no carrinho.";
             // 
-            // label12
+            // lb_Total
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label12.ForeColor = System.Drawing.Color.DarkBlue;
-            this.label12.Location = new System.Drawing.Point(1330, 464);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(141, 30);
-            this.label12.TabIndex = 50;
-            this.label12.Text = "Total: R$0,00";
+            this.lb_Total.AutoSize = true;
+            this.lb_Total.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lb_Total.ForeColor = System.Drawing.Color.DarkBlue;
+            this.lb_Total.Location = new System.Drawing.Point(1330, 464);
+            this.lb_Total.Name = "lb_Total";
+            this.lb_Total.Size = new System.Drawing.Size(141, 30);
+            this.lb_Total.TabIndex = 50;
+            this.lb_Total.Text = "Total: R$0,00";
             // 
             // button_confirmar
             // 
@@ -892,13 +900,51 @@
             this.button_confirmar.UseVisualStyleBackColor = true;
             this.button_confirmar.Click += new System.EventHandler(this.button_confirmar_Click);
             // 
+            // pnChoiceSize
+            // 
+            this.pnChoiceSize.Controls.Add(this.bt_priceThree);
+            this.pnChoiceSize.Controls.Add(this.bt_priceTwo);
+            this.pnChoiceSize.Controls.Add(this.bt_priceOne);
+            this.pnChoiceSize.Location = new System.Drawing.Point(387, 285);
+            this.pnChoiceSize.Name = "pnChoiceSize";
+            this.pnChoiceSize.Size = new System.Drawing.Size(363, 52);
+            this.pnChoiceSize.TabIndex = 52;
+            // 
+            // bt_priceThree
+            // 
+            this.bt_priceThree.Location = new System.Drawing.Point(252, 9);
+            this.bt_priceThree.Name = "bt_priceThree";
+            this.bt_priceThree.Size = new System.Drawing.Size(84, 33);
+            this.bt_priceThree.TabIndex = 2;
+            this.bt_priceThree.TabStop = false;
+            this.bt_priceThree.Click += new System.EventHandler(this.bt_priceThree_Click);
+            // 
+            // bt_priceTwo
+            // 
+            this.bt_priceTwo.Location = new System.Drawing.Point(139, 10);
+            this.bt_priceTwo.Name = "bt_priceTwo";
+            this.bt_priceTwo.Size = new System.Drawing.Size(84, 33);
+            this.bt_priceTwo.TabIndex = 1;
+            this.bt_priceTwo.TabStop = false;
+            this.bt_priceTwo.Click += new System.EventHandler(this.bt_priceTwo_Click);
+            // 
+            // bt_priceOne
+            // 
+            this.bt_priceOne.Location = new System.Drawing.Point(23, 10);
+            this.bt_priceOne.Name = "bt_priceOne";
+            this.bt_priceOne.Size = new System.Drawing.Size(84, 33);
+            this.bt_priceOne.TabIndex = 0;
+            this.bt_priceOne.TabStop = false;
+            this.bt_priceOne.Click += new System.EventHandler(this.bt_priceOne_Click);
+            // 
             // FormProdutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1495, 711);
+            this.Controls.Add(this.pnChoiceSize);
             this.Controls.Add(this.button_confirmar);
-            this.Controls.Add(this.label12);
+            this.Controls.Add(this.lb_Total);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.listViewCart);
             this.Controls.Add(this.label24);
@@ -948,6 +994,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.bt_panelSelectTipo_choicePizza)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.pnChoiceSize.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.bt_priceThree)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bt_priceTwo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bt_priceOne)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1029,9 +1079,13 @@
         private ListView listViewCart;
         private Label label11;
         private ColumnHeader columnHeader3;
-        private Label label12;
+        private Label lb_Total;
         private ColumnHeader columnHeader4;
         private ColumnHeader columnHeader5;
         private Button button_confirmar;
+        private Panel pnChoiceSize;
+        private PictureBox bt_priceOne;
+        private PictureBox bt_priceThree;
+        private PictureBox bt_priceTwo;
     }
 }
