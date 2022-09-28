@@ -15,6 +15,7 @@ namespace PizzaControle
     {
 
         private bool SellMode = false;
+        private decimal total;
 
 
         public FormProdutos()
@@ -654,9 +655,12 @@ namespace PizzaControle
 
                 listItem.SubItems.Add(listView2.SelectedItems[0].SubItems[1].Text);
 
-                listViewCart.Items.Add(listItem);
+                listItem.SubItems.Add(listView2.SelectedItems[0].SubItems[2].Text);
 
-            }
+                    listViewCart.Items.Add(listItem);
+                    total += Convert.ToDecimal(listView2.SelectedItems[0].SubItems[2].Text);
+                    lb_Total.Text = "Total R$:" + total;
+                }
         }
 
         private void listView1_DoubleClick(object sender, EventArgs e)
@@ -671,7 +675,10 @@ namespace PizzaControle
 
         private void button_confirmar_Click(object sender, EventArgs e)
         {
+            if (listViewCart.Items.Count > 0)
+            {
 
+            }
         }
 
 
@@ -692,6 +699,8 @@ namespace PizzaControle
                 listItem.SubItems.Add(listView1.SelectedItems[0].SubItems[2].Text);
 
                 listViewCart.Items.Add(listItem);
+                total += Convert.ToDecimal(listView1.SelectedItems[0].SubItems[2].Text);
+                lb_Total.Text = "Total R$:" + total;
 
                 pnChoiceSize.Visible = false;
 
@@ -715,6 +724,8 @@ namespace PizzaControle
 
 
                 listViewCart.Items.Add(listItem);
+                total += Convert.ToDecimal(listView1.SelectedItems[0].SubItems[3].Text);
+                lb_Total.Text = "Total R$:" + total;
 
                 pnChoiceSize.Visible = false;
             }
@@ -735,6 +746,8 @@ namespace PizzaControle
                 listItem.SubItems.Add(listView1.SelectedItems[0].SubItems[4].Text);
 
                 listViewCart.Items.Add(listItem);
+                total += Convert.ToDecimal(listView1.SelectedItems[0].SubItems[4].Text);
+                lb_Total.Text = "Total R$:" + total;
 
                 pnChoiceSize.Visible = false;
             }

@@ -28,10 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem5 = new System.Windows.Forms.ListViewItem(new string[] {
-            "0",
-            "aaaa",
-            "5,50"}, -1);
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
+            "",
+            ""}, -1);
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeader_id = new System.Windows.Forms.ColumnHeader();
             this.columnHeader_produto = new System.Windows.Forms.ColumnHeader();
@@ -92,6 +91,10 @@
             this.bt_panelSelectTipo_choiceBebida = new System.Windows.Forms.PictureBox();
             this.bt_panelSelectTipo_choicePizza = new System.Windows.Forms.PictureBox();
             this.label20 = new System.Windows.Forms.Label();
+            this.pnChoiceSize = new System.Windows.Forms.Panel();
+            this.bt_priceThree = new System.Windows.Forms.PictureBox();
+            this.bt_priceTwo = new System.Windows.Forms.PictureBox();
+            this.bt_priceOne = new System.Windows.Forms.PictureBox();
             this.radioButton_Pizzas = new System.Windows.Forms.RadioButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -104,16 +107,12 @@
             this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
             this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
             this.listViewCart = new System.Windows.Forms.ListView();
-            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader4 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
+            this.chId = new System.Windows.Forms.ColumnHeader();
+            this.chProduto = new System.Windows.Forms.ColumnHeader();
+            this.chPreco = new System.Windows.Forms.ColumnHeader();
             this.label11 = new System.Windows.Forms.Label();
             this.lb_Total = new System.Windows.Forms.Label();
             this.button_confirmar = new System.Windows.Forms.Button();
-            this.pnChoiceSize = new System.Windows.Forms.Panel();
-            this.bt_priceThree = new System.Windows.Forms.PictureBox();
-            this.bt_priceTwo = new System.Windows.Forms.PictureBox();
-            this.bt_priceOne = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.btExclui)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btNovo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btAlterar)).BeginInit();
@@ -132,12 +131,12 @@
             this.panel_select_tipo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bt_panelSelectTipo_choiceBebida)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bt_panelSelectTipo_choicePizza)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.pnChoiceSize.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bt_priceThree)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bt_priceTwo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bt_priceOne)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // listView1
@@ -731,6 +730,50 @@
             this.label20.TabIndex = 0;
             this.label20.Text = "Selecione o tipo de produto";
             // 
+            // pnChoiceSize
+            // 
+            this.pnChoiceSize.BackColor = System.Drawing.SystemColors.ControlText;
+            this.pnChoiceSize.Controls.Add(this.bt_priceThree);
+            this.pnChoiceSize.Controls.Add(this.bt_priceTwo);
+            this.pnChoiceSize.Controls.Add(this.bt_priceOne);
+            this.pnChoiceSize.Location = new System.Drawing.Point(383, 265);
+            this.pnChoiceSize.Name = "pnChoiceSize";
+            this.pnChoiceSize.Size = new System.Drawing.Size(391, 81);
+            this.pnChoiceSize.TabIndex = 52;
+            // 
+            // bt_priceThree
+            // 
+            this.bt_priceThree.Image = global::PizzaControle.Properties.Resources._45cm;
+            this.bt_priceThree.Location = new System.Drawing.Point(252, 9);
+            this.bt_priceThree.Name = "bt_priceThree";
+            this.bt_priceThree.Size = new System.Drawing.Size(100, 65);
+            this.bt_priceThree.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.bt_priceThree.TabIndex = 2;
+            this.bt_priceThree.TabStop = false;
+            this.bt_priceThree.Click += new System.EventHandler(this.bt_priceThree_Click);
+            // 
+            // bt_priceTwo
+            // 
+            this.bt_priceTwo.Image = global::PizzaControle.Properties.Resources._35cm;
+            this.bt_priceTwo.Location = new System.Drawing.Point(139, 10);
+            this.bt_priceTwo.Name = "bt_priceTwo";
+            this.bt_priceTwo.Size = new System.Drawing.Size(100, 65);
+            this.bt_priceTwo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.bt_priceTwo.TabIndex = 1;
+            this.bt_priceTwo.TabStop = false;
+            this.bt_priceTwo.Click += new System.EventHandler(this.bt_priceTwo_Click);
+            // 
+            // bt_priceOne
+            // 
+            this.bt_priceOne.Image = global::PizzaControle.Properties.Resources._25cm;
+            this.bt_priceOne.Location = new System.Drawing.Point(23, 10);
+            this.bt_priceOne.Name = "bt_priceOne";
+            this.bt_priceOne.Size = new System.Drawing.Size(100, 65);
+            this.bt_priceOne.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.bt_priceOne.TabIndex = 0;
+            this.bt_priceOne.TabStop = false;
+            this.bt_priceOne.Click += new System.EventHandler(this.bt_priceOne_Click);
+            // 
             // radioButton_Pizzas
             // 
             this.radioButton_Pizzas.AutoSize = true;
@@ -838,12 +881,12 @@
             // listViewCart
             // 
             this.listViewCart.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5});
+            this.chId,
+            this.chProduto,
+            this.chPreco});
             this.listViewCart.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.listViewCart.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem5});
+            listViewItem1});
             this.listViewCart.Location = new System.Drawing.Point(1144, 67);
             this.listViewCart.Name = "listViewCart";
             this.listViewCart.Size = new System.Drawing.Size(339, 394);
@@ -851,20 +894,20 @@
             this.listViewCart.UseCompatibleStateImageBehavior = false;
             this.listViewCart.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeader3
+            // chId
             // 
-            this.columnHeader3.Text = "id";
-            this.columnHeader3.Width = 50;
+            this.chId.Text = "id";
+            this.chId.Width = 50;
             // 
-            // columnHeader4
+            // chProduto
             // 
-            this.columnHeader4.Text = "Produto";
-            this.columnHeader4.Width = 200;
+            this.chProduto.Text = "Produto";
+            this.chProduto.Width = 200;
             // 
-            // columnHeader5
+            // chPreco
             // 
-            this.columnHeader5.Text = "Preço";
-            this.columnHeader5.Width = 80;
+            this.chPreco.Text = "Preço";
+            this.chPreco.Width = 80;
             // 
             // label11
             // 
@@ -899,43 +942,6 @@
             this.button_confirmar.Text = "Confirmar";
             this.button_confirmar.UseVisualStyleBackColor = true;
             this.button_confirmar.Click += new System.EventHandler(this.button_confirmar_Click);
-            // 
-            // pnChoiceSize
-            // 
-            this.pnChoiceSize.Controls.Add(this.bt_priceThree);
-            this.pnChoiceSize.Controls.Add(this.bt_priceTwo);
-            this.pnChoiceSize.Controls.Add(this.bt_priceOne);
-            this.pnChoiceSize.Location = new System.Drawing.Point(387, 285);
-            this.pnChoiceSize.Name = "pnChoiceSize";
-            this.pnChoiceSize.Size = new System.Drawing.Size(363, 52);
-            this.pnChoiceSize.TabIndex = 52;
-            // 
-            // bt_priceThree
-            // 
-            this.bt_priceThree.Location = new System.Drawing.Point(252, 9);
-            this.bt_priceThree.Name = "bt_priceThree";
-            this.bt_priceThree.Size = new System.Drawing.Size(84, 33);
-            this.bt_priceThree.TabIndex = 2;
-            this.bt_priceThree.TabStop = false;
-            this.bt_priceThree.Click += new System.EventHandler(this.bt_priceThree_Click);
-            // 
-            // bt_priceTwo
-            // 
-            this.bt_priceTwo.Location = new System.Drawing.Point(139, 10);
-            this.bt_priceTwo.Name = "bt_priceTwo";
-            this.bt_priceTwo.Size = new System.Drawing.Size(84, 33);
-            this.bt_priceTwo.TabIndex = 1;
-            this.bt_priceTwo.TabStop = false;
-            this.bt_priceTwo.Click += new System.EventHandler(this.bt_priceTwo_Click);
-            // 
-            // bt_priceOne
-            // 
-            this.bt_priceOne.Location = new System.Drawing.Point(23, 10);
-            this.bt_priceOne.Name = "bt_priceOne";
-            this.bt_priceOne.Size = new System.Drawing.Size(84, 33);
-            this.bt_priceOne.TabIndex = 0;
-            this.bt_priceOne.TabStop = false;
-            this.bt_priceOne.Click += new System.EventHandler(this.bt_priceOne_Click);
             // 
             // FormProdutos
             // 
@@ -992,12 +998,12 @@
             this.panel_select_tipo.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bt_panelSelectTipo_choiceBebida)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bt_panelSelectTipo_choicePizza)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.pnChoiceSize.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bt_priceThree)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bt_priceTwo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bt_priceOne)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1078,10 +1084,10 @@
         private PictureBox bt_bebidas_altera;
         private ListView listViewCart;
         private Label label11;
-        private ColumnHeader columnHeader3;
+        private ColumnHeader chId;
         private Label lb_Total;
-        private ColumnHeader columnHeader4;
-        private ColumnHeader columnHeader5;
+        private ColumnHeader chProduto;
+        private ColumnHeader chPreco;
         private Button button_confirmar;
         private Panel pnChoiceSize;
         private PictureBox bt_priceOne;
