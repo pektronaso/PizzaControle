@@ -28,13 +28,14 @@ namespace PizzaControle
 
         private void picBalcao_Click(object sender, EventArgs e)
         {
-            FormView.OpenSingleton("prod_ModoVenda");
+            FormView.OpenSingleton("prod_ModoVendaB");
             Close();
         }
 
         private void picIfood_Click(object sender, EventArgs e)
         {
-
+            FormView.OpenSingleton("prod_ModoVendaI");
+            Close();
         }
 
         private void picTel_Click(object sender, EventArgs e)

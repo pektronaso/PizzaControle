@@ -16,25 +16,27 @@ namespace PizzaControle
 
         private bool SellMode = false;
         private decimal total;
-
+        private string? tipo;
 
         public FormProdutos()
         {
             InitializeComponent();
         }
 
-        public FormProdutos(bool sellModeChoice)
-        {         
+        public FormProdutos(bool sellModeChoice, string? tipo)
+        {
             InitializeComponent();
 
             if (sellModeChoice)
             {
                 this.SellMode = sellModeChoice;
-                this.Size = new Size(1511, 690);          
+                this.Size = new Size(1511, 690);
+                this.tipo = tipo;
 
-                
+
             }
-            
+
+            this.tipo = tipo;
         }
 
 
@@ -677,7 +679,7 @@ namespace PizzaControle
         {
             if (listViewCart.Items.Count > 0)
             {
-
+                
             }
         }
 

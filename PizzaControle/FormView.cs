@@ -122,9 +122,13 @@ namespace PizzaControle
                         FormNewPedido formNewPedido = new FormNewPedido();
                         formNewPedido.Show();
                         break;
-                    case "prod_ModoVenda":
-                        FormProdutos formProdModoVenda = new FormProdutos(true);
-                        formProdModoVenda.Show();
+                    case "prod_ModoVendaB":
+                        FormProdutos formProdModoVendaB = new FormProdutos(true,"balcao");
+                        formProdModoVendaB.Show();
+                        break;
+                    case "prod_ModoVendaI":
+                        FormProdutos formProdModoVendaI = new FormProdutos(true, "ifood");
+                        formProdModoVendaI.Show();
                         break;
 
 
