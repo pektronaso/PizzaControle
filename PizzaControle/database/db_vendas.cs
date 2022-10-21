@@ -11,8 +11,55 @@ namespace PizzaControle
     internal static partial class Database
     {
 
+        public static int GetLastVendaId()
+        {
 
-        public static string add_Venda(entregador ent)
+            MySqlConnection conn = new MySqlConnection(connStr);
+            try
+            {
+
+                conn.Open();
+
+                string sql = "SELECT * FROM vendas";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+
+                venda vd = new venda();
+
+                while (rdr.Read())
+                {
+                    vd.Id = Convert.ToInt32(rdr["id"].ToString());
+                    vd.createdAt =  (DateTime)rdr["createdAt"];
+                    vd.caixaId = Convert.ToInt32(rdr["caixaId"].ToString());
+                }
+
+                if (rdr.HasRows)
+                {
+                    conn.Close();
+                    return vd.Id;
+                }
+                else
+                {
+                    conn.Close();
+                    return 0;
+                }
+
+
+
+
+            }
+            catch (Exception)
+            {
+                conn.Close();
+                return 0;
+            }
+
+        }
+
+
+        public static string Create_Venda(int id, entregador ent)
         {
 
             MySqlConnection conn = new MySqlConnection(connStr);
@@ -21,7 +68,7 @@ namespace PizzaControle
                 conn.Open();
 
                 
-                string sql = "INSERT INTO `vendas` (`caixaId`, `entregadorId`, `type`) VALUES ('"+ GetLastCaixa().id + "', '"+ent.id+"', 'balcao')";
+                string sql = "INSERT INTO `vendas` (`id`,`caixaId`, `entregadorId`, `type`) VALUES ('"+id+"', '" + GetLastCaixa().id + "', '"+ent.id+"', 'balcao')";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
                 cmd.ExecuteNonQuery();
             }

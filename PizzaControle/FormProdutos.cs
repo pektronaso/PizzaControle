@@ -32,7 +32,7 @@ namespace PizzaControle
                 this.SellMode = sellModeChoice;
                 this.Size = new Size(1511, 690);
                 this.tipo = tipo;
-
+                this.listViewCart.Items.Clear();
 
             }
 
@@ -679,7 +679,11 @@ namespace PizzaControle
         {
             if (listViewCart.Items.Count > 0)
             {
-                
+                int id =  1;
+                id += Database.GetLastVendaId();
+
+                // Database.Create_Venda(id , );
+
             }
         }
 
