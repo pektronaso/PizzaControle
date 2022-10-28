@@ -681,6 +681,8 @@ namespace PizzaControle
 
                 listItem.SubItems.Add(listView2.SelectedItems[0].SubItems[2].Text);
 
+                listItem.SubItems.Add("0");
+
                     listViewCart.Items.Add(listItem);
                     total += Convert.ToDecimal(listView2.SelectedItems[0].SubItems[2].Text);
                     lb_Total.Text = "Total R$:" + total;
@@ -700,10 +702,10 @@ namespace PizzaControle
         private void listViewEntregadores_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             if (listViewEntregadores.SelectedItems.Count > 0)
-            {                
+            {
+
                 int id = 1;
                 id = id + Database.GetLastVendaId();
-
 
                 int entregadorId = Convert.ToInt32(listViewEntregadores.SelectedItems[0].SubItems[0].Text);
                 
@@ -717,7 +719,12 @@ namespace PizzaControle
                 {
 
                     int productId = Convert.ToInt32(listViewCart.Items[i].Text);
+                    
+
+
                     int pizzaSize = Convert.ToInt32(listViewCart.Items[i].SubItems[3].Text);
+
+
                     Database.InsertItem_Venda(id,productId,pizzaSize);
                 }
 

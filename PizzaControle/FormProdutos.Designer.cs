@@ -110,6 +110,7 @@
             this.chId = new System.Windows.Forms.ColumnHeader();
             this.chProduto = new System.Windows.Forms.ColumnHeader();
             this.chPreco = new System.Windows.Forms.ColumnHeader();
+            this.chSize = new System.Windows.Forms.ColumnHeader();
             this.label11 = new System.Windows.Forms.Label();
             this.lb_Total = new System.Windows.Forms.Label();
             this.button_confirmar = new System.Windows.Forms.Button();
@@ -117,7 +118,7 @@
             this.listViewEntregadores = new System.Windows.Forms.ListView();
             this.columnHeaderID = new System.Windows.Forms.ColumnHeader();
             this.columnHeaderNome = new System.Windows.Forms.ColumnHeader();
-            this.chSize = new System.Windows.Forms.ColumnHeader();
+            this.chTipo = new System.Windows.Forms.ColumnHeader();
             ((System.ComponentModel.ISupportInitialize)(this.btExclui)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btNovo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btAlterar)).BeginInit();
@@ -890,7 +891,8 @@
             this.chId,
             this.chProduto,
             this.chPreco,
-            this.chSize});
+            this.chSize,
+            this.chTipo});
             this.listViewCart.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.listViewCart.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1});
@@ -915,6 +917,10 @@
             // 
             this.chPreco.Text = "Preço";
             this.chPreco.Width = 80;
+            // 
+            // chSize
+            // 
+            this.chSize.Text = "";
             // 
             // label11
             // 
@@ -983,9 +989,9 @@
             this.columnHeaderNome.Text = "Nome";
             this.columnHeaderNome.Width = 270;
             // 
-            // chSize
+            // chTipo
             // 
-            this.chSize.Text = "";
+            this.chTipo.Text = "";
             // 
             // FormProdutos
             // 
@@ -1144,5 +1150,6 @@
         private ColumnHeader columnHeaderID;
         private ColumnHeader columnHeaderNome;
         private ColumnHeader chSize;
+        private ColumnHeader chTipo;
     }
 }

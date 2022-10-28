@@ -88,7 +88,7 @@ namespace PizzaControle
         }
 
 
-        public static string InsertItem_Venda(int id, int productId, int pizzaSize)
+        public static string InsertItem_Venda(int vendaId, int productId, int pizzaSize)
         {
 
             MySqlConnection conn = new MySqlConnection(connStr);
@@ -96,7 +96,7 @@ namespace PizzaControle
             {
                 conn.Open();
 
-                string sql = "INSERT INTO `vendingitens` (`id`, `vendaId`, `productId`, `pizzaSize`) VALUES ('"+id+"', '"+GetLastVendaId()+"', '"+productId+"', '"+pizzaSize+"')";
+                string sql = "INSERT INTO `vendingitens` (`vendaId`, `productId`, `pizzaSize`) VALUES ('"+ vendaId + "', '"+productId+"', '"+pizzaSize+"')";
                 MySqlCommand cmd = new MySqlCommand(sql, conn);
 
                 cmd.ExecuteNonQuery();
