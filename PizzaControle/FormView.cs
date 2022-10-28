@@ -108,16 +108,6 @@ namespace PizzaControle
                         FormEntradas formEntrada = new FormEntradas();
                         formEntrada.Show();
                         break;
-                    case "Entrada de Entregador":
-                        FormEntradaEntregador formEntradaentregador = new FormEntradaEntregador();
-                        formEntradaentregador.Show();
-                        break;
-
-                    case "CheckOut Entregador":
-                        FormSaidaEntregador formSaidaentregador = new FormSaidaEntregador();
-                        formSaidaentregador.Show();
-                        break;
-
                     case "Novo Pedido":
                         FormNewPedido formNewPedido = new FormNewPedido();
                         formNewPedido.Show();

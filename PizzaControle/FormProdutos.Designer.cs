@@ -113,6 +113,11 @@
             this.label11 = new System.Windows.Forms.Label();
             this.lb_Total = new System.Windows.Forms.Label();
             this.button_confirmar = new System.Windows.Forms.Button();
+            this.panelEntregadores = new System.Windows.Forms.Panel();
+            this.listViewEntregadores = new System.Windows.Forms.ListView();
+            this.columnHeaderID = new System.Windows.Forms.ColumnHeader();
+            this.columnHeaderNome = new System.Windows.Forms.ColumnHeader();
+            this.chSize = new System.Windows.Forms.ColumnHeader();
             ((System.ComponentModel.ISupportInitialize)(this.btExclui)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btNovo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btAlterar)).BeginInit();
@@ -137,6 +142,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bt_priceOne)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panelEntregadores.SuspendLayout();
             this.SuspendLayout();
             // 
             // listView1
@@ -883,7 +889,8 @@
             this.listViewCart.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.chId,
             this.chProduto,
-            this.chPreco});
+            this.chPreco,
+            this.chSize});
             this.listViewCart.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.listViewCart.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1});
@@ -943,11 +950,49 @@
             this.button_confirmar.UseVisualStyleBackColor = true;
             this.button_confirmar.Click += new System.EventHandler(this.button_confirmar_Click);
             // 
+            // panelEntregadores
+            // 
+            this.panelEntregadores.Controls.Add(this.listViewEntregadores);
+            this.panelEntregadores.Location = new System.Drawing.Point(443, 179);
+            this.panelEntregadores.Name = "panelEntregadores";
+            this.panelEntregadores.Size = new System.Drawing.Size(340, 324);
+            this.panelEntregadores.TabIndex = 53;
+            this.panelEntregadores.Visible = false;
+            // 
+            // listViewEntregadores
+            // 
+            this.listViewEntregadores.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.columnHeaderID,
+            this.columnHeaderNome});
+            this.listViewEntregadores.FullRowSelect = true;
+            this.listViewEntregadores.Location = new System.Drawing.Point(3, 3);
+            this.listViewEntregadores.MultiSelect = false;
+            this.listViewEntregadores.Name = "listViewEntregadores";
+            this.listViewEntregadores.Size = new System.Drawing.Size(334, 318);
+            this.listViewEntregadores.TabIndex = 14;
+            this.listViewEntregadores.UseCompatibleStateImageBehavior = false;
+            this.listViewEntregadores.View = System.Windows.Forms.View.Details;
+            this.listViewEntregadores.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.listViewEntregadores_MouseDoubleClick);
+            // 
+            // columnHeaderID
+            // 
+            this.columnHeaderID.Text = "id";
+            // 
+            // columnHeaderNome
+            // 
+            this.columnHeaderNome.Text = "Nome";
+            this.columnHeaderNome.Width = 270;
+            // 
+            // chSize
+            // 
+            this.chSize.Text = "";
+            // 
             // FormProdutos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1495, 711);
+            this.Controls.Add(this.panelEntregadores);
             this.Controls.Add(this.pnChoiceSize);
             this.Controls.Add(this.button_confirmar);
             this.Controls.Add(this.lb_Total);
@@ -1004,6 +1049,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.bt_priceOne)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panelEntregadores.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1093,5 +1139,10 @@
         private PictureBox bt_priceOne;
         private PictureBox bt_priceThree;
         private PictureBox bt_priceTwo;
+        private Panel panelEntregadores;
+        private ListView listViewEntregadores;
+        private ColumnHeader columnHeaderID;
+        private ColumnHeader columnHeaderNome;
+        private ColumnHeader chSize;
     }
 }

@@ -30,19 +30,19 @@ namespace PizzaControle
 
                 while (rdr.Read())
                 {
-                    vd.Id = Convert.ToInt32(rdr["id"].ToString());
-                    vd.createdAt =  (DateTime)rdr["createdAt"];
+                    vd.Id = (int)rdr["id"];                    
                     vd.caixaId = Convert.ToInt32(rdr["caixaId"].ToString());
                 }
 
                 if (rdr.HasRows)
                 {
                     conn.Close();
+                    
                     return vd.Id;
                 }
                 else
                 {
-                    conn.Close();
+                    conn.Close();                    
                     return 0;
                 }
 
@@ -65,21 +65,54 @@ namespace PizzaControle
             MySqlConnection conn = new MySqlConnection(connStr);
             try
             {
-                conn.Open();
-
+                conn.Open();                
                 
                 string sql = "INSERT INTO `vendas` (`id`,`caixaId`, `entregadorId`, `type`) VALUES ('"+id+"', '" + GetLastCaixa().id + "', '"+ent.id+"', 'balcao')";
-                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlCommand cmd = new MySqlCommand(sql, conn);                
+
                 cmd.ExecuteNonQuery();
+                
             }
             catch (Exception ex)
             {
                 conn.Close();
+
+                MessageBox.Show(ex.Message);
+
                 return ex.ToString();
             }
 
             conn.Close();
-            return "Produto Cadastrado com Sucesso";
+            return "venda registrada com Sucesso";
+
+        }
+
+
+        public static string InsertItem_Venda(int id, int productId, int pizzaSize)
+        {
+
+            MySqlConnection conn = new MySqlConnection(connStr);
+            try
+            {
+                conn.Open();
+
+                string sql = "INSERT INTO `vendingitens` (`id`, `vendaId`, `productId`, `pizzaSize`) VALUES ('"+id+"', '"+GetLastVendaId()+"', '"+productId+"', '"+pizzaSize+"')";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+
+                cmd.ExecuteNonQuery();
+
+            }
+            catch (Exception ex)
+            {
+                conn.Close();
+
+                MessageBox.Show(ex.Message);
+
+                return ex.ToString();
+            }
+
+            conn.Close();
+            return "item adicionado com Sucesso";
 
         }
 

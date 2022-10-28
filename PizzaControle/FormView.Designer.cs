@@ -46,10 +46,6 @@
             this.despesaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.entradaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripSeparator();
-            this.entregadoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.trabalhandoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.baterCartãoDeSaídaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripSeparator();
             this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relátorioDeCaixaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.relátorioDeVendasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -79,7 +75,6 @@
             this.aquivoToolStripMenuItem,
             this.cadastroToolStripMenuItem,
             this.caixaToolStripMenuItem,
-            this.entregadoresToolStripMenuItem,
             this.relatóriosToolStripMenuItem,
             this.históricosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -124,33 +119,33 @@
             // funcionárioToolStripMenuItem
             // 
             this.funcionárioToolStripMenuItem.Name = "funcionárioToolStripMenuItem";
-            this.funcionárioToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.funcionárioToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.funcionárioToolStripMenuItem.Text = "Funcionário";
             this.funcionárioToolStripMenuItem.Click += new System.EventHandler(this.funcionárioToolStripMenuItem_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(134, 6);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(177, 6);
             // 
             // clienteToolStripMenuItem
             // 
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.clienteToolStripMenuItem.Text = "Cliente";
             this.clienteToolStripMenuItem.Click += new System.EventHandler(this.clienteToolStripMenuItem_Click);
             // 
             // entregadorToolStripMenuItem
             // 
             this.entregadorToolStripMenuItem.Name = "entregadorToolStripMenuItem";
-            this.entregadorToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.entregadorToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.entregadorToolStripMenuItem.Text = "Entregador";
             this.entregadorToolStripMenuItem.Click += new System.EventHandler(this.entregadorToolStripMenuItem_Click);
             // 
             // produtoToolStripMenuItem
             // 
             this.produtoToolStripMenuItem.Name = "produtoToolStripMenuItem";
-            this.produtoToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.produtoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.produtoToolStripMenuItem.Text = "Produto";
             this.produtoToolStripMenuItem.Click += new System.EventHandler(this.produtoToolStripMenuItem_Click);
             // 
@@ -202,35 +197,6 @@
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
             this.toolStripMenuItem5.Size = new System.Drawing.Size(131, 6);
-            // 
-            // entregadoresToolStripMenuItem
-            // 
-            this.entregadoresToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.trabalhandoToolStripMenuItem,
-            this.baterCartãoDeSaídaToolStripMenuItem,
-            this.toolStripMenuItem4});
-            this.entregadoresToolStripMenuItem.Name = "entregadoresToolStripMenuItem";
-            this.entregadoresToolStripMenuItem.Size = new System.Drawing.Size(88, 20);
-            this.entregadoresToolStripMenuItem.Text = "Entregadores";
-            // 
-            // trabalhandoToolStripMenuItem
-            // 
-            this.trabalhandoToolStripMenuItem.Name = "trabalhandoToolStripMenuItem";
-            this.trabalhandoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.trabalhandoToolStripMenuItem.Text = "Registrar Entrada";
-            this.trabalhandoToolStripMenuItem.Click += new System.EventHandler(this.trabalhandoToolStripMenuItem_Click);
-            // 
-            // baterCartãoDeSaídaToolStripMenuItem
-            // 
-            this.baterCartãoDeSaídaToolStripMenuItem.Name = "baterCartãoDeSaídaToolStripMenuItem";
-            this.baterCartãoDeSaídaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.baterCartãoDeSaídaToolStripMenuItem.Text = "Registrar Saída";
-            this.baterCartãoDeSaídaToolStripMenuItem.Click += new System.EventHandler(this.baterCartãoDeSaídaToolStripMenuItem_Click);
-            // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(177, 6);
             // 
             // relatóriosToolStripMenuItem
             // 
@@ -422,10 +388,6 @@
         private ToolStripMenuItem entregadorToolStripMenuItem;
         private ToolStripMenuItem produtoToolStripMenuItem;
         private ToolStripMenuItem opçõesToolStripMenuItem;
-        private ToolStripMenuItem entregadoresToolStripMenuItem;
-        private ToolStripMenuItem trabalhandoToolStripMenuItem;
-        private ToolStripMenuItem baterCartãoDeSaídaToolStripMenuItem;
-        private ToolStripSeparator toolStripMenuItem4;
         private ToolStripMenuItem relátorioDeCaixaToolStripMenuItem;
         private ToolStripMenuItem relátorioDeVendasToolStripMenuItem;
         private ToolStripMenuItem relátorioDeEntregadoresToolStripMenuItem;
@@ -440,8 +402,7 @@
         private Button bt_NovoPedido;
         private Button button2;
         private ToolStripStatusLabel toolStripStatusLabel2;
-        private ToolStripStatusLabel statusLabel;
-        private ToolStripMenuItem emServiçoToolStripMenuItem;
+        private ToolStripStatusLabel statusLabel;        
         private ToolStripSeparator toolStripMenuItem5;
     }
 }

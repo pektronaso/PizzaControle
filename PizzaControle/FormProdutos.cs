@@ -40,6 +40,27 @@ namespace PizzaControle
         }
 
 
+
+        private void refreshEntregadores()
+        {
+            listViewEntregadores.Items.Clear();
+
+            //label_EntregadoresCount.Text = "Entregadores: " + Database.GetEntregadores().Count;
+
+            foreach (var entregador in Database.GetEntregadores())
+            {
+
+                ListViewItem listItem = new ListViewItem();
+
+                listItem.Text = entregador.id.ToString();
+
+                listItem.SubItems.Add(entregador.nome);
+
+
+                listViewEntregadores.Items.Add(listItem);
+            }
+        }
+
         private void refreshDateWithSearch(string key, string value)
         {
             listView1.Items.Clear();
@@ -99,6 +120,7 @@ namespace PizzaControle
             listView1.Items.Clear();
             listView2.Items.Clear();
 
+            refreshEntregadores();
             //label_EntregadoresCount.Text = "Entregadores: " + database.GetEntregadores().Count;
 
             foreach (var produto in Database.GetProdutos())
@@ -675,14 +697,44 @@ namespace PizzaControle
             
         }
 
+        private void listViewEntregadores_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (listViewEntregadores.SelectedItems.Count > 0)
+            {                
+                int id = 1;
+                id = id + Database.GetLastVendaId();
+
+
+                int entregadorId = Convert.ToInt32(listViewEntregadores.SelectedItems[0].SubItems[0].Text);
+                
+                panelEntregadores.Visible = false;
+
+                Database.Create_Venda(id , Database.GetEntregador(entregadorId));
+                
+
+
+                for (int i = 0; i < listViewCart.Items.Count; i++)
+                {
+
+                    int productId = Convert.ToInt32(listViewCart.Items[i].Text);
+                    int pizzaSize = Convert.ToInt32(listViewCart.Items[i].SubItems[3].Text);
+                    Database.InsertItem_Venda(id,productId,pizzaSize);
+                }
+
+            }
+        }
+
+
         private void button_confirmar_Click(object sender, EventArgs e)
         {
             if (listViewCart.Items.Count > 0)
             {
-                int id =  1;
-                id += Database.GetLastVendaId();
+                panelEntregadores.Visible = true;
+                panelEntregadores.BringToFront();
 
-                // Database.Create_Venda(id , );
+
+
+                
 
             }
         }
@@ -703,6 +755,9 @@ namespace PizzaControle
                 listItem.SubItems.Add(listView1.SelectedItems[0].SubItems[1].Text);
                 
                 listItem.SubItems.Add(listView1.SelectedItems[0].SubItems[2].Text);
+
+                listItem.SubItems.Add("1");
+
 
                 listViewCart.Items.Add(listItem);
                 total += Convert.ToDecimal(listView1.SelectedItems[0].SubItems[2].Text);
@@ -726,6 +781,8 @@ namespace PizzaControle
                 listItem.SubItems.Add(listView1.SelectedItems[0].SubItems[1].Text);
 
                 listItem.SubItems.Add(listView1.SelectedItems[0].SubItems[3].Text);
+
+                listItem.SubItems.Add("2");
 
 
 
@@ -751,6 +808,9 @@ namespace PizzaControle
 
                 listItem.SubItems.Add(listView1.SelectedItems[0].SubItems[4].Text);
 
+                listItem.SubItems.Add("3");
+
+
                 listViewCart.Items.Add(listItem);
                 total += Convert.ToDecimal(listView1.SelectedItems[0].SubItems[4].Text);
                 lb_Total.Text = "Total R$:" + total;
@@ -758,5 +818,7 @@ namespace PizzaControle
                 pnChoiceSize.Visible = false;
             }
         }
+
+        
     }
 }

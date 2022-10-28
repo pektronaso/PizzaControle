@@ -61,6 +61,51 @@ namespace PizzaControle
 
 
 
+        public static entregador GetEntregador(int id)
+        {
+
+            MySqlConnection conn = new MySqlConnection(connStr);
+            try
+            {
+
+                conn.Open();
+
+                string sql = "SELECT * FROM entregadores where id = "+id+"";
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                MySqlDataReader rdr = cmd.ExecuteReader();
+
+
+                entregador ent = new entregador();
+
+                while (rdr.Read())
+                {
+                
+
+                    ent.id = (int)rdr[0];
+                    ent.nome = rdr[1].ToString();
+
+                
+
+                }
+
+
+                conn.Close();
+
+                return ent;
+
+            }
+            catch (Exception)
+            {
+                conn.Close();
+                return new entregador();
+            }
+
+
+
+
+
+        }
+
 
 
 
